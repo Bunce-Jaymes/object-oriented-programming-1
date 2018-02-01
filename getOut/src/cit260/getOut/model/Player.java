@@ -70,4 +70,3 @@ public class Player implements Serializable{
         return "Player{" + "name=" + name + ", bestTime=" + bestTime + '}';
     }
 }
-MY name is jaymes
