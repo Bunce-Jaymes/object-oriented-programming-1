@@ -4,45 +4,34 @@
  * and open the template in the editor.
  */
 package cit260.getOut.model;
-
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.Objects;
+
 /**
  *
- * @author jayme
+ * @author Samuel Prettyman
  */
-public class Player implements Serializable{
+public class Player implements Serializable {
     private String name;
     private double bestTime;
-    private ArrayList<Game> games = new ArrayList<Game>();
     
     
 
     public Player() {
     }
 
-    public String getName() {
-        return name;
+    @Override
+    public String toString() {
+        return "Player{" + "name=" + name + ", bestTime=" + bestTime + '}';
     }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public double getBestTime() {
-        return bestTime;
-    }
-
-    public void setBestTime(double bestTime) {
-        this.bestTime = bestTime;
-    }
+    
+    
 
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 29 * hash + Objects.hashCode(this.name);
-        hash = 29 * hash + (int) (Double.doubleToLongBits(this.bestTime) ^ (Double.doubleToLongBits(this.bestTime) >>> 32));
+        int hash = 5;
+        hash = 53 * hash + Objects.hashCode(this.name);
+        hash = 53 * hash + (int) (Double.doubleToLongBits(this.bestTime) ^ (Double.doubleToLongBits(this.bestTime) >>> 32));
         return hash;
     }
 
@@ -66,18 +55,26 @@ public class Player implements Serializable{
         }
         return true;
     }
+    
+    
 
-    @Override
-    public String toString() {
-        return "Player{" + "name=" + name + ", bestTime=" + bestTime + '}';
+    public String getName() {
+        return name;
     }
 
-    public void setTime(double d) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public double getTime() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public double getBestTime() {
+        return bestTime;
     }
+
+    public void setBestTime(double bestTime) {
+        this.bestTime = bestTime;
+    }
+
+  
+  
+    
 }
-
