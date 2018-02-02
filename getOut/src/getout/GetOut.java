@@ -7,6 +7,8 @@ package getout;
 
 import cit260.getOut.model.Actor;
 import cit260.getOut.model.Player;
+import cit260.getOut.model.Question;
+import cit260.getOut.model.RegularSceneType;
 
 /**
  *
@@ -31,5 +33,17 @@ public class GetOut {
         
         System.out.println(playerOne.toString());
         
+        Question questionOne = new Question();
+        questionOne.setQuestion("Is this working?");
+        questionOne.setAnswer("Yes it is working.");
+        
+        System.out.println(questionOne.toString());
+        
+        RegularSceneType sceneOne = new RegularSceneType();
+        sceneOne.setBlocked("No");
+        sceneOne.setDescription("A large red door");
+        sceneOne.setSymbol("/");
+        
+        System.out.println(sceneOne.toString());
     }
     }

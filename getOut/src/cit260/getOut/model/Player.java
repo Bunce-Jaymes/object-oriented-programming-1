@@ -15,8 +15,6 @@ public class Player implements Serializable {
     private String name;
     private double bestTime;
     
-    
-
     public Player() {
     }
 
@@ -25,8 +23,7 @@ public class Player implements Serializable {
         return "Player{" + "name=" + name + ", bestTime=" + bestTime + '}';
     }
     
-    
-
+  
     @Override
     public int hashCode() {
         int hash = 5;
@@ -55,9 +52,6 @@ public class Player implements Serializable {
         }
         return true;
     }
-    
-    
-
     public String getName() {
         return name;
     }
