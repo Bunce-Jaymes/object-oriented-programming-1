@@ -5,6 +5,7 @@
  */
 package getout;
 
+import cit260.getOut.model.Actor;
 import cit260.getOut.model.Player;
 
 /**
@@ -24,6 +25,9 @@ public class GetOut {
         
         String playerOneName = playerOne.getName();
         double playerOneTime = playerOne.getBestTime();
+        
+        System.out.println(Actor.Victim.getName());
+        System.out.println(Actor.Victim.getDescription());
         
         System.out.println(playerOne.toString());
         
