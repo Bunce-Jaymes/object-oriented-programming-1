@@ -6,6 +6,7 @@
 package cit260.getOut.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Objects;
 /**
  *
@@ -15,6 +16,7 @@ public class Player implements Serializable{
     private String name;
     private double bestTime;
     private ArrayList<Game> games = new ArrayList<Game>();
+    
     
 
     public Player() {
@@ -68,6 +70,14 @@ public class Player implements Serializable{
     @Override
     public String toString() {
         return "Player{" + "name=" + name + ", bestTime=" + bestTime + '}';
+    }
+
+    public void setTime(double d) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public double getTime() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }
 
