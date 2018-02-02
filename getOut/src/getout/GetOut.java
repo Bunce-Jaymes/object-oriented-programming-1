@@ -20,10 +20,10 @@ public class GetOut {
         // TODO code application logic here
         Player playerOne = new Player();
         playerOne.setName("Juan Cena");
-        playerOne.setTime(7.00);
+        playerOne.setBestTime(7.00);
         
         String playerOneName = playerOne.getName();
-        double playerOneTime = playerOne.getTime();
+        double playerOneTime = playerOne.getBestTime();
         
         System.out.println(playerOne.toString());
         
