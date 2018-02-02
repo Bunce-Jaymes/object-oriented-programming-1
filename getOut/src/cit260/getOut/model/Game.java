@@ -79,5 +79,3 @@ public class Game implements Serializable{
             return false;
         }
         return true;
-        
-
