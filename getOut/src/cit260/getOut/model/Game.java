@@ -5,6 +5,7 @@
  */
 package cit260.getOut.model;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Objects;
 /**
  *
@@ -15,8 +16,26 @@ public class Game implements Serializable{
     private String description;
     private int noPlayer;
     private Player player;
-
+    private Map map;
+    private ArrayList<Item> items = new ArrayList<Item>();
+    
     public Game() {
+    }
+
+    public ArrayList<Item> getItems() {
+        return items;
+    }
+
+    public void setItems(ArrayList<Item> items) {
+        this.items = items;
+    }
+
+    public Map getMap() {
+        return map;
+    }
+
+    public void setMap(Map map) {
+        this.map = map;
     }
     
      public Player getPlayer() {
