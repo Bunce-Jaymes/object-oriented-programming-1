@@ -19,7 +19,25 @@ import java.util.Objects;
          Sand("Sand", "Sand");
          
          private String itemType;
-         private String itemType;
+         private String description;
+         
+         Item(String itemType, String description){
+             this.itemType = itemType;
+             this.description = description;
+         }
+
+    public String getItemType() {
+        return itemType;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    @Override
+    public String toString() {
+        return "Item{" + "itemType=" + itemType + ", description=" + description + '}';
+    }
          
     }
 
