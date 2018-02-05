@@ -6,6 +6,7 @@
 package cit260.getOut.model;
 
 import java.awt.Point;
+import java.util.ArrayList;
 
 /**
  *
@@ -19,6 +20,7 @@ public enum Actor{
     private String description;
     private Point coordinates;
     private Game game; 
+    private ArrayList<Player> player1 = new ArrayList<Player>();
     
     public String getName() {
         return name;
@@ -27,6 +29,15 @@ public enum Actor{
     public String getDescription() {
         return description;
     }
+
+    public Game getGame() {
+        return game;
+    }
+
+    public void setGame(Game game) {
+        this.game = game;
+    }
+    
 
     public Point getCoordinates() {
         return coordinates;

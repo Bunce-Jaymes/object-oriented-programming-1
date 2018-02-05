@@ -6,6 +6,7 @@
 package cit260.getOut.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 /**
  *
@@ -15,6 +16,8 @@ public class Location implements Serializable{
     
     private int row;
     private int column;
+    private Actor actor;
+    private ArrayList<RegularSceneType> sceneType = new ArrayList<RegularSceneType>();
   
 
     public Location() {
@@ -35,6 +38,14 @@ public class Location implements Serializable{
 
     public void setColumn(int column) {
         this.column = column;
+    }
+
+    public Actor getActor() {
+        return actor;
+    }
+
+    public void setActor(Actor actor) {
+        this.actor = actor;
     }
 
     @Override

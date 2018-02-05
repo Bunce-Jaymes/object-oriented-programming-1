@@ -21,6 +21,10 @@ import java.util.Objects;
          private String itemType;
          private String description;
          private Game game;
+         private Actor actor;
+         
+         
+         
          
          Item(String itemType, String description){
              this.itemType = itemType;
@@ -34,6 +38,23 @@ import java.util.Objects;
     public String getDescription() {
         return description;
     }
+
+    public Game getGame() {
+        return game;
+    }
+
+    public void setGame(Game game) {
+        this.game = game;
+    }
+
+    public Actor getActor() {
+        return actor;
+    }
+
+    public void setActor(Actor actor) {
+        this.actor = actor;
+    }
+    
 
     @Override
     public String toString() {
