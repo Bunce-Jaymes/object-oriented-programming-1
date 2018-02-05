@@ -15,7 +15,7 @@ public class Location implements Serializable{
     
     private int row;
     private int column;
-    private double timeTraveled;
+  
 
     public Location() {
     }
@@ -37,20 +37,11 @@ public class Location implements Serializable{
         this.column = column;
     }
 
-    public double getTimeTraveled() {
-        return timeTraveled;
-    }
-
-    public void setTimeTraveled(double timeTraveled) {
-        this.timeTraveled = timeTraveled;
-    }
-
     @Override
     public int hashCode() {
-        int hash = 5;
-        hash = 47 * hash + this.row;
-        hash = 47 * hash + this.column;
-        hash = 47 * hash + (int) (Double.doubleToLongBits(this.timeTraveled) ^ (Double.doubleToLongBits(this.timeTraveled) >>> 32));
+        int hash = 3;
+        hash = 43 * hash + this.row;
+        hash = 43 * hash + this.column;
         return hash;
     }
 
@@ -72,15 +63,12 @@ public class Location implements Serializable{
         if (this.column != other.column) {
             return false;
         }
-        if (Double.doubleToLongBits(this.timeTraveled) != Double.doubleToLongBits(other.timeTraveled)) {
-            return false;
-        }
         return true;
     }
 
     @Override
     public String toString() {
-        return "Location{" + "row=" + row + ", column=" + column + ", timeTraveled=" + timeTraveled + '}';
+        return "Location{" + "row=" + row + ", column=" + column + '}';
     }
     
 }

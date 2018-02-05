@@ -6,6 +6,8 @@
 package getout;
 
 import cit260.getOut.model.Actor;
+import cit260.getOut.model.Item;
+import cit260.getOut.model.Location;
 import cit260.getOut.model.Map;
 import cit260.getOut.model.Player;
 import cit260.getOut.model.Question;
@@ -30,6 +32,10 @@ public class GetOut {
         map1.setRowCount(1);
         map1.setColumnCount(2);
         
+        Location loco1 = new Location();
+        loco1.setRow(1);
+        loco1.setColumn(3);
+        
         
         
         String playerOneName = playerOne.getName();
@@ -41,6 +47,14 @@ public class GetOut {
         
         System.out.println(playerOne.toString());
         System.out.println(map1.toString());
+        
+        System.out.println(Item.DriftPin.getItemType());
+        System.out.println(Item.DriftPin.getDescription());
+        
+        System.out.println(loco1.toString());
+
+        
+        
         
         
         Question questionOne = new Question();
