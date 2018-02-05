@@ -18,7 +18,8 @@ public enum Actor{
     private String name;
     private String description;
     private Point coordinates;
-
+    private Game game; 
+    
     public String getName() {
         return name;
     }

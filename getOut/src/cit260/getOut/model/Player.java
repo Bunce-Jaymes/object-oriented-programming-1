@@ -14,6 +14,7 @@ import java.util.Objects;
 public class Player implements Serializable {
     private String name;
     private double bestTime;
+    private Actor actor;
     
     public Player() {
     }

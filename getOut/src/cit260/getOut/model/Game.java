@@ -17,18 +17,21 @@ public class Game implements Serializable{
     private int noPlayer;
     private Player player;
     private Map map;
-    private ArrayList<Item> items = new ArrayList<Item>();
+    private Actor actor;
+    
     
     public Game() {
     }
 
-    public ArrayList<Item> getItems() {
-        return items;
+    public Actor getActor() {
+        return actor;
     }
 
-    public void setItems(ArrayList<Item> items) {
-        this.items = items;
+    public void setActor(Actor actor) {
+        this.actor = actor;
     }
+
+
 
     public Map getMap() {
         return map;

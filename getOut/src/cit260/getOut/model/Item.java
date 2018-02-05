@@ -13,13 +13,14 @@ import java.util.Objects;
      public enum Item {
          
          Hammer("Hammer", "Hammer"),
-         Drift Pin("Drift Pin","Drift Pin"),
-         Lock Pick("Lock Pick", "Lock Pick"),
-         Two Liter Bottle("Two Liter Bottle","Two Liter Bottle"),
+         DriftPin("Drift Pin","Drift Pin"),
+         LockPick("Lock Pick", "Lock Pick"),
+         TwoLiterBottle("Two Liter Bottle","Two Liter Bottle"),
          Sand("Sand", "Sand");
          
          private String itemType;
          private String description;
+         private Game game;
          
          Item(String itemType, String description){
              this.itemType = itemType;
