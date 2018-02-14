@@ -18,7 +18,10 @@ public class doorControl {
           
            if(pounds < 0.1 || pounds > 40){
             return -3;
-        }
+        
+           
+           
+           }
     
             if (liters < 0 ){
               return -1;
