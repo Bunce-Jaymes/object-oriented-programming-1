@@ -17,6 +17,7 @@ public class Location implements Serializable{
     private int row;
     private int column;
     private Actor actor;
+    private Map map;
     private ArrayList<RegularSceneType> sceneType = new ArrayList<RegularSceneType>();
   
 
