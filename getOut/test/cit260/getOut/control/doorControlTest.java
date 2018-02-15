@@ -23,14 +23,9 @@ public class doorControlTest {
     @Test
     public void testCalcWeight() {
         System.out.println("calcWeight");
-        
-        //Test Case 1
-        System.out.println("\tTest Case 1");
-        
-        //define the input variables
         double guessLiters = 5.0;
-        double pounds = 0.0;
-        double expResult = 1;
+        double pounds = 11.0;
+        double expResult = 1.0;
         double result = doorControl.calcWeight(guessLiters, pounds);
         assertEquals(expResult, result, 0.0);
         // TODO review the generated test code and remove the default call to fail.
