@@ -34,5 +34,32 @@ public class doorControl {
             return -3;
         }    
     }
+
+
+
+
+    public static double calcForce(double mass, double acceleration){
+
+        //pounds = Math.random() * 40 + 1;
+
+        if (mass <= 0){
+            return -1.0;
+        }
+
+        if (acceleration <=0 ){
+            return -1;
+        }
+      double force = mass * acceleration;
+      
+        if(force >= 450 && force <= 650){
+          return force;
+        }
+        else{
+            return 0;
+        }
+       
+     }
 }
+
+
 
