@@ -1,6 +1,8 @@
 
 package cit260.getOut.control;
 
+import java.util.Random;
+
 
 /**
  *
@@ -9,12 +11,10 @@ package cit260.getOut.control;
 
 public class doorControl {
     
-    public static double calcWeight(double guessLiters, double pounds){
-        
-        //pounds = Math.random() * 40 + 1;
-        
+    public static int calcWeight(double guessLiters, double pounds){
+   
         if (pounds < 1 || pounds > 40){
-           return -3;
+           return -4;
         }
            
         if (guessLiters < 0 ){
@@ -25,8 +25,8 @@ public class doorControl {
             return -2;
         }
             
-        double guessWeight = guessLiters * 2.2;
-            
+        double guessWeight = (guessLiters * 2.2);
+        guessWeight = Math.round(guessWeight * 1);    
         if (pounds == guessWeight){
             return 1;
         }
