@@ -3,7 +3,7 @@ package cit260.getOut.control;
 
 
 /**
- *
+ *packa
  * @author Samuel Prettyman
  */
 
@@ -13,8 +13,8 @@ public class doorControl {
         
         //pounds = Math.random() * 40 + 1;
         
-        if (pounds < 1 || pounds > 40){
-            return -3;
+        if (pounds < 1.0 || pounds > 40.0){
+            return -3.0;
         }
            
         if (guessLiters < 0 ){
