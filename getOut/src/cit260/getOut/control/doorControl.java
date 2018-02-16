@@ -47,7 +47,7 @@ public class doorControl {
         }
 
         if (acceleration <=0 ){
-            return -1;
+            return -2.0;
         }
       double force = mass * acceleration;
       
@@ -59,7 +59,31 @@ public class doorControl {
         }
        
      }
+    
+    public static double calcForceTwo(double massTwo, double acellerationTwo){
+
+
+
+    if (massTwo <= 0){
+        return -1.0;
+    }
+
+    if (acellerationTwo <=0 ){
+        return -2.0;
+}   
+    double forceTwo = massTwo * acellerationTwo;
+
+    if(forceTwo >= 450 && forceTwo <= 650){
+        return forceTwo;
+        }
+    else{
+        return 0;
 }
+
+}
+}
+
+
 
 
 
