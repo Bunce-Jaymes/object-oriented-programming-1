@@ -12,6 +12,7 @@ import cit260.getOut.model.Map;
 import cit260.getOut.model.Player;
 import cit260.getOut.model.Question;
 import cit260.getOut.model.RegularSceneType;
+import cit260.getOut.view.StartProgramView;
 
 /**
  *
@@ -19,10 +20,11 @@ import cit260.getOut.model.RegularSceneType;
  */
 public class GetOut {
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
+        
+        StartProgramView.startProgramView = new StartProgramView();
+        startProgramView.displayStartProgramView();
+        
         // TODO code application logic here
         Player playerOne = new Player();
         playerOne.setName("Juan Cena");
@@ -35,8 +37,6 @@ public class GetOut {
         Location loco1 = new Location();
         loco1.setRow(1);
         loco1.setColumn(3);
-        
-        
         
         String playerOneName = playerOne.getName();
         double playerOneTime = playerOne.getBestTime();
