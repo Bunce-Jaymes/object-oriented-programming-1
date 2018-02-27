@@ -5,6 +5,10 @@
  */
 package cit260.getOut.view;
 
+import cit260.getOut.control.GameControl;
+import static cit260.getOut.control.GameControl.savePlayer;
+import cit260.getOut.control.MainMenuView;
+import cit260.getOut.model.Player;
 import java.io.Serializable;
 import java.util.Scanner;
 
@@ -57,10 +61,20 @@ public class StartProgramView implements Serializable {
     }
 
     private boolean doAction(String[] inputs) {
-        System.out.println("*** doAction() called ***");
-        System.out.println("\tinputs = " + inputs[0]);
-        
+        String playerName = inputs[0];
+        Player player = GameControl.savePlayer(playerName);
+        if (player == null){ 
+           System.out.println("Could not create player. " + "Enter a different name.");
+         return false;
+        }
+       
+       System.out.println("=======================================");
+       System.out.println("Welcome to the game, "  + playerName + "\nWe hope you have a lot of fun!");  
+       System.out.println("=======================================");
+    
+        MainMenuView mainMenuView = new MainMenuView();
+        mainMenuView.displayMainMenuView();
         return true;
-        
     }
+    
 }

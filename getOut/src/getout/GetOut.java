@@ -6,6 +6,7 @@
 package getout;
 
 import cit260.getOut.model.Actor;
+import cit260.getOut.model.Game;
 import cit260.getOut.model.Item;
 import cit260.getOut.model.Location;
 import cit260.getOut.model.Map;
@@ -19,11 +20,14 @@ import cit260.getOut.view.StartProgramView;
  * @author jayme
  */
 public class GetOut {
+    private static Game currentGame = null;
+    private static Player player = null;
 
     public static void main(String[] args) {
         
         StartProgramView startProgramView = new StartProgramView();
         startProgramView.displayStartProgramView();
+        
         
         // TODO code application logic here
         //Player playerOne = new Player();
@@ -64,5 +68,21 @@ public class GetOut {
         //sceneOne.setSymbol("/");
         
         //System.out.println(sceneOne.toString());
+    }
+
+    public static Game getCurrentGame() {
+        return currentGame;
+    }
+
+    public static void setCurrentGame(Game currentGame) {
+        GetOut.currentGame = currentGame;
+    }
+
+    public static Player getPlayer() {
+        return player;
+    }
+
+    public static void setPlayer(Player player) {
+        GetOut.player = player;
     }
     }

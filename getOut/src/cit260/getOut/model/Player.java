@@ -24,7 +24,6 @@ public class Player implements Serializable {
         return "Player{" + "name=" + name + ", bestTime=" + bestTime + '}';
     }
     
-  
     @Override
     public int hashCode() {
         int hash = 5;
