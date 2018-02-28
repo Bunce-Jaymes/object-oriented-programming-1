@@ -3,10 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package cit260.getOut.control;
+package cit260.getOut.view;
 
+import cit260.getOut.control.GameControl;
 import cit260.getOut.model.*;
-import cit260.getOut.view.StartExistingGameView;
+import cit260.getOut.view.*;
 import getout.GetOut;
 import java.util.Scanner;
 

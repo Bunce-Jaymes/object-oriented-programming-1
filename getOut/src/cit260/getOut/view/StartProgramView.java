@@ -7,7 +7,7 @@ package cit260.getOut.view;
 
 import cit260.getOut.control.GameControl;
 import static cit260.getOut.control.GameControl.savePlayer;
-import cit260.getOut.control.MainMenuView;
+import cit260.getOut.view.MainMenuView;
 import cit260.getOut.model.Player;
 import java.io.Serializable;
 import java.util.Scanner;

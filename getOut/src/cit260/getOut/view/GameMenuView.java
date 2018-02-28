@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package cit260.getOut.control;
+package cit260.getOut.view;
 
 import cit260.getOut.view.ToolListView;
 import java.util.Scanner;
@@ -119,3 +119,4 @@ class GameMenuView {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }
+
