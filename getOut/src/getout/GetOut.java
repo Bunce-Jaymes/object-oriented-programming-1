@@ -5,15 +5,8 @@
  */
 package getout;
 
-import cit260.getOut.model.Actor;
-import cit260.getOut.model.Game;
-import cit260.getOut.model.Item;
-import cit260.getOut.model.Location;
-import cit260.getOut.model.Map;
-import cit260.getOut.model.Player;
-import cit260.getOut.model.Question;
-import cit260.getOut.model.RegularSceneType;
-import cit260.getOut.view.StartProgramView;
+import cit260.getOut.model.*;
+import cit260.getOut.view.*;
 
 /**
  *

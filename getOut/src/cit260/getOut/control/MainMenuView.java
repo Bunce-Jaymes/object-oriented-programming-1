@@ -5,7 +5,9 @@
  */
 package cit260.getOut.control;
 
-import cit260.getOut.model.Player;
+import cit260.getOut.model.*;
+import cit260.getOut.view.StartExistingGameView;
+import getout.GetOut;
 import java.util.Scanner;
 
 /**
@@ -28,26 +30,62 @@ public class MainMenuView {
     }
        private String[] getInputs() {
         String[] inputs = new String[1];
-        //Display the instructions
-        //valid = false
-        //WHILE valid == false (while input value is not valid)
-        //Display the prompt message
-        //Get the value entered from the keyboard
-        //Trim off leading and trailing blanks from the value
-        //IF length of the value < 1 then
-        //Display "You must enter a value.”
-        //Continue
-        //ENDIF
-        //Assign value to the next position in the inputs array
-        //valid = true
-        //ENDWHILE
+        System.out.println("N - Start new game \n" + "R - Load saved game\n" + "H - Get help on how to play the game\n" + "E - Exit ");
+        boolean valid = false;
+        while (valid == false){
+           System.out.println("Enter a key: ");
+           Scanner input;
+           input = new Scanner(System.in);
+           String scannedInput = input.nextLine();
+           String inputWithTrim = scannedInput.trim();
+           
+           if (inputWithTrim.length() <1){
+               System.out.println("You must enter a non-blank value");
+               continue;
+           }
+           else{
+                inputs[0] = inputWithTrim;
+                valid = true;
+            }
+        }
         return inputs;
-    }
+
+        } 
 
     private boolean doAction(String[] inputs) {
-        System.out.println("Main menu doaction works");
-        System.out.println("\tinputs = " + inputs[0]);
-        return true;
+       String menuItem = inputs[0];
+       menuItem = inputs[0].toUpperCase();
+       switch (menuItem) {
+           case "N": startNewGame();
+           break;
+           case "R": restartGame();
+           break;
+           case "H": getHelp();
+           break;
+           case "E": return true;
+           
+           default : System.out.println("Invalid menu item.");
+       }
+        return false;
     }
-    
+
+    private void startNewGame() {
+        Game newGame = new Game();
+        
+        GameControl.createNewGame(GetOut.getPlayer());
+        
+        GameMenuView gameMenuView = new GameMenuView();
+        gameMenuView.displayGameMenuGame();
+    }
+
+    private void restartGame() {
+        StartExistingGameView startExistingGameView = new StartExistingGameView();
+        startExistingGameView.displayStartExistingGameView();
+    }
+
+    private void getHelp() {
+        helpMenuView helpMenuView = new helpMenuView();
+        helpMenuView.displayhelpMenuView();
+    }
 }
+
