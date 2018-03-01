@@ -31,7 +31,9 @@ public class MainMenuView {
     }
        private String[] getInputs() {
         String[] inputs = new String[1];
+        System.out.println("=======================================");
         System.out.println("N - Start new game \n" + "R - Load saved game\n" + "H - Get help on how to play the game\n" + "E - Exit ");
+        System.out.println("=======================================");
         boolean valid = false;
         while (valid == false){
            System.out.println("Enter a key: ");
@@ -39,9 +41,11 @@ public class MainMenuView {
            input = new Scanner(System.in);
            String scannedInput = input.nextLine();
            String inputWithTrim = scannedInput.trim();
+           System.out.println("=======================================");
            
            if (inputWithTrim.length() <1){
                System.out.println("You must enter a non-blank value");
+               System.out.println("=======================================");
                continue;
            }
            else{
@@ -65,7 +69,9 @@ public class MainMenuView {
            break;
            case "E": return true;
            
-           default : System.out.println("Invalid menu item.");
+           default : System.out.println("=======================================");
+                     System.out.println("Invalid menu item.");
+                     System.out.println("=======================================");
        }
         return false;
     }
@@ -85,7 +91,7 @@ public class MainMenuView {
     }
 
     private void getHelp() {
-        helpMenuView helpMenuView = new helpMenuView();
+        HelpMenuView helpMenuView = new HelpMenuView();
         helpMenuView.displayhelpMenuView();
     }
 }

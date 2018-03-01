@@ -46,6 +46,8 @@ public class StartProgramView implements Serializable {
             nameInput = new Scanner(System.in);
             String name = nameInput.nextLine();
             
+            System.out.println("=======================================");
+            
             String nameWithTrim = name.trim();
             
             if (nameWithTrim.length() <1) {
@@ -64,7 +66,9 @@ public class StartProgramView implements Serializable {
         String playerName = inputs[0];
         Player player = GameControl.savePlayer(playerName);
         if (player == null){ 
+            System.out.println("=======================================");
            System.out.println("Could not create player. " + "Enter a different name.");
+           System.out.println("=======================================");
          return false;
         }
        

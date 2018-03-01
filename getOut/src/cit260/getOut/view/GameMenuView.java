@@ -5,7 +5,7 @@
  */
 package cit260.getOut.view;
 
-import cit260.getOut.view.ToolListView;
+
 import java.util.Scanner;
 
 /**
@@ -35,9 +35,10 @@ class GameMenuView {
         "E - Explore location\n" +
         "S - Save game\n" +
         "H - Help\n" +
-        "X - Exit game menu\n" +
-        "Q - Quit");
-        
+        "X - Exit game menu\n" + 
+        "D - To demo pinCodeDoorControl View");
+        System.out.println("=======================================");
+                
         boolean valid = false;
         while (valid == false){
            System.out.println("Enter a key: ");
@@ -45,6 +46,7 @@ class GameMenuView {
            input = new Scanner(System.in);
            String scannedInput = input.nextLine();
            String inputWithTrim = scannedInput.trim();
+           System.out.println("=======================================");
            
            if (inputWithTrim.length() <1){
                System.out.println("You must enter a correct, non-blank value");
@@ -78,7 +80,7 @@ class GameMenuView {
            case "H": helpMenu();
            break;
            case "X": return true;
-           case "Q": quit();
+           case "D": demoTestView();
            break;
            
            default : System.out.println("Invalid menu item.");
@@ -87,36 +89,46 @@ class GameMenuView {
     }
 
     private void viewMap() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        System.out.println("***viewMap Called***");
+        System.out.println("=======================================");
     }
 
     private void movePlayer() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        System.out.println("***movePlayer Called***");
+        System.out.println("=======================================");
     }
 
     private void viewInventory() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        System.out.println("***viewInventory Called***");
+        System.out.println("=======================================");
     }
 
     private void viewToolList() {
         ToolListView toolListView = new ToolListView();
         toolListView.displayoolListView();
+        System.out.println("=======================================");
     }
 
     private void exploreLocation() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        System.out.println("***exploreLocation Called***");
+        System.out.println("=======================================");
     }
 
     private void saveGame() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        System.out.println("***saveGame Called***");
+        System.out.println("=======================================");
     }
 
     private void helpMenu() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        HelpMenuView helpMenuView = new HelpMenuView();
+        helpMenuView.displayhelpMenuView();
+        System.out.println("=======================================");
     }
 
-    private void quit() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    private void demoTestView() {
+        DemoTestView demoTestView = new DemoTestView();
+        demoTestView.displayDemoTestView();
+        System.out.println("=======================================");
     }
 }
 
