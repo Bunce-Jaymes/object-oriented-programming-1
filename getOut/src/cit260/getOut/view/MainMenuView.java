@@ -91,7 +91,7 @@ public class MainMenuView {
     }
 
     private void getHelp() {
-        HelpMenuView helpMenuView = new HelpMenuView();
+        helpMenuView helpMenuView = new helpMenuView();
         helpMenuView.displayhelpMenuView();
     }
 }
