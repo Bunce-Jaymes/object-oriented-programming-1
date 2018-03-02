@@ -26,7 +26,9 @@ class helpMenuView {
     }
        private String[] getInputs() {
         String[] inputs = new String[1];
-        System.out.println("G - What is the goal of the game?\n" + "M - How to move\n" + "D -  Doors open \n" + "T - Tools\n" + "Q - Quit ");
+        System.out.println("=======================================");
+        System.out.println("G - What is the goal of the game?\n" + "M - How to move\n" + "D - Doors open \n" + "T - Tools\n" + "Q - Quit ");
+        System.out.println("=======================================");
         boolean valid = false;
         while (valid == false){
            System.out.println("Enter a key: ");
@@ -34,9 +36,12 @@ class helpMenuView {
            input = new Scanner(System.in);
            String scannedInput = input.nextLine();
            String inputWithTrim = scannedInput.trim();
+           System.out.println("=======================================");
            
            if (inputWithTrim.length() <1){
+               System.out.println("=======================================");
                System.out.println("You must enter a non-blank value");
+               System.out.println("=======================================");
                continue;
            }
            else{
