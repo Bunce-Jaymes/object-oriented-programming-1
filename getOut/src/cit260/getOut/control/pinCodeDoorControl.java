@@ -6,27 +6,22 @@ package cit260.getOut.control;
  */
 public class pinCodeDoorControl {
     
-    public static int calcCode(int y, int guessCode){
-        if (y < 0){
+    public static int calcCode(int hint, int guessCode){
+        if (hint < 0){
             return -1;
         }
-        
-        if (y > 134){
+        if (hint > 135){
             return -2;
         }
         
-        if (y % 2 != 0){
-            return -4;
+        int x = (hint/2 +32);
+        int code = (x*x);
+        
+        if (code == guessCode){
+            return 1;
         }
         else{
-            int x = (y/2 +32);
-            int code = (x*x);
-            if (code == guessCode){
-                return 1;
-            }
-            else{
-                return -4;
-            }
+            return -4;
         }
     }
 }
