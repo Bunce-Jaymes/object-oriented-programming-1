@@ -83,7 +83,7 @@ class GameMenuView {
            case "X": return true;
            case "D": demoTestView();
            break;
-           case "F": demoTestView2();
+           case "F": demoTestView02();
            break;
          
            
@@ -135,9 +135,9 @@ class GameMenuView {
         System.out.println("=======================================");
     }
 
-    private void demoTestView2() {
-        DemoTestView2 demoTestView2 = new DemoTestView2();
-        demoTestView2.displayDemoTestView2();
+    private void demoTestView02() {
+        DemoTestView02 demoTestView2 = new DemoTestView02();
+        demoTestView2.displayDemoTestView02();
         System.out.println("=======================================");
     }
        
