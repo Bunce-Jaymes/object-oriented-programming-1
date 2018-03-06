@@ -36,7 +36,8 @@ class GameMenuView {
         "S - Save game\n" +
         "H - Help\n" +
         "X - Exit game menu\n" + 
-        "D - To demo pinCodeDoorControl View");
+        "D - To demo pinCodeDoorControl View\n" +
+        "F - To demo forceLockDoorControl View");
         System.out.println("=======================================");
                 
         boolean valid = false;
@@ -82,6 +83,9 @@ class GameMenuView {
            case "X": return true;
            case "D": demoTestView();
            break;
+           case "F": demoTestView2();
+           break;
+         
            
            default : System.out.println("Invalid menu item.");
        }
@@ -130,5 +134,14 @@ class GameMenuView {
         demoTestView.displayDemoTestView();
         System.out.println("=======================================");
     }
+
+    private void demoTestView2() {
+        DemoTestView2 demoTestView2 = new DemoTestView2();
+        demoTestView2.displayDemoTestView2();
+        System.out.println("=======================================");
+    }
+       
+
+   
 }
 
