@@ -18,18 +18,26 @@ import java.util.Scanner;
 class DemoTestView02 {
 
     void displayDemoTestView02() {
-        boolean endView = false;
+        
+             boolean endView = false;
         do {
-            boolean inputs = getInputs();
-            if (inputs != true){
+            String[] inputs = getInputs();
+            String value = inputs[0];
+            
+          if (value.equals('Q') || inputs.length < 1 ){
                 return;
             }
-            endView = doAction();
+            endView = doAction(inputs);
         } while (endView != true);
+        
+        
+      
     }
 
-    private boolean getInputs() {
-                
+    private String[] getInputs() {
+        
+        String[] inputs = new String[2];
+                        
         boolean valid = false;
         while (valid == false){
    
@@ -41,45 +49,42 @@ class DemoTestView02 {
            System.out.println("Enter an how fast you are swinging the hammer in meters/second: ");
            Scanner input;
            input = new Scanner(System.in);
-           double acceleration = input.nextInt();
+           String acceleration = input.nextLine();
+           acceleration = acceleration.trim();
            System.out.println("=======================================");
            
            System.out.println("=======================================");
            System.out.println("Enter how much mass the hammer has : ");
            Scanner input2;
            input2 = new Scanner(System.in);
-           double mass = input2.nextInt();
+           String mass = input2.nextLine();
+           mass = mass.trim();
            System.out.println("=======================================");
            
-           double length = String.valueOf(acceleration).length();
-           double force = mass * acceleration; 
            
+         if(mass.length() < 1 || acceleration.length() < 1){
+             
+             System.out.println("YOU suck");
+             continue;
+             
+         }
+         
+         else{    
+          inputs[0] = acceleration;
+          inputs[1] = mass;
+          valid = true;
+         
+         }
+             
         
-           
-                double endForce = forceLockDoorControl.calcForce(mass,acceleration);
-                
-                if(endForce >= 450 && endForce <= 6501){
-                    
-                    break;
-                }
-                if (endForce < 450){
-                    System.out.println("You need more force to break the lock\n");
-                    System.out.println("=======================================");
-                    continue;
-                }
-                
-                 if (endForce > 650){
-                    System.out.println("Thats to much force, make it a little softer to unlock the door\n");
-                    System.out.println("=======================================");
-                    continue;
-                }
-            }
-        
-        return true;
         } 
-
-    private boolean doAction() {
-        System.out.println("You entered the correct force, the door is now unlocked.");
+        return inputs;
+    }
+    private boolean doAction(String[] inputs) {
+        double acceleration = Double.parseDouble(inputs[0]);
+        double mass = Double.parseDouble(inputs[1]);
+       
+        
         return true;
     }
 }

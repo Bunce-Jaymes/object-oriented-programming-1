@@ -18,7 +18,7 @@ public class forceLockDoorControl {
             return -1.0;
         }
 
-        if (acceleration <=0 ){
+        else if (acceleration <=0 ){
             return -2.0;
         }
       double force = mass * acceleration;
