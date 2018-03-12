@@ -16,69 +16,40 @@ import java.util.Scanner;
  *
  * @author Jaymes Bunce and Sam Prettyman
  */
-public class StartProgramView implements Serializable {
+public class StartProgramView extends View {
 
     public StartProgramView() {
     }
-    
-    public void displayStartProgramView() {
-        boolean endView = false;
-        do {
-            String[] inputs = getInputs();
-            String value = inputs[0].toUpperCase();
-            
-            if (value.equals('Q') || inputs.length < 1 ){
-                return;
-            }
-            endView = doAction(inputs);
-        } while (endView != true);
-    }
 
-    private String[] getInputs() {
+    @Override
+    public String[] getInputs() {
         String[] inputs = new String[1];
         System.out.println("Welcome to GetOut the Game");
-
-        boolean valid = false;
-        while (valid == false) {
-            System.out.println("Enter your name: ");  
-            
-            Scanner nameInput;
-            nameInput = new Scanner(System.in);
-            String name = nameInput.nextLine();
-            
-            System.out.println("=======================================");
-            
-            String nameWithTrim = name.trim();
-            
-            if (nameWithTrim.length() <1) {
-                System.out.println("You must enter a non-blank value");
-                continue;
-            }
-            else{
-                inputs[0] = nameWithTrim;
-                valid = true;
-            }
-        }   
+        String playerName = this.getInputs("\nPLease enter your name: ");
+        inputs[0] = playerName;
+        
         return inputs;
-    }
 
-    private boolean doAction(String[] inputs) {
+    }
+   
+    @Override
+    public boolean doAction(String[] inputs) {
         String playerName = inputs[0];
         Player player = GameControl.savePlayer(playerName);
-        if (player == null){ 
+        if (player == null) {
             System.out.println("=======================================");
-           System.out.println("Could not create player. " + "Enter a different name.");
-           System.out.println("=======================================");
-         return false;
+            System.out.println("Could not create player. " + "Enter a different name.");
+            System.out.println("=======================================");
+            return false;
         }
-       
-       System.out.println("=======================================");
-       System.out.println("Welcome to the game, "  + playerName + "\nWe hope you have a lot of fun!");  
-       System.out.println("=======================================");
-    
+
+        System.out.println("=======================================");
+        System.out.println("Welcome to the game, " + playerName + "\nWe hope you have a lot of fun!");
+        System.out.println("=======================================");
+
         MainMenuView mainMenuView = new MainMenuView();
-        mainMenuView.displayMainMenuView();
+        mainMenuView.display();
         return true;
     }
-    
+
 }

@@ -11,49 +11,26 @@ import java.util.Scanner;
  *
  * @author jayme
  */
-class helpMenuView {
-    public void displayhelpMenuView(){
-    boolean endView = false;
-        do {
-            String[] inputs = getInputs();
-            String value = inputs[0].toUpperCase();
-            
-            if (value.equals('Q') || inputs.length < 1 ){
-                return;
-            }
-            endView = doAction(inputs);
-        } while (endView != true);
+class helpMenuView extends View{
+
+    public helpMenuView() {
     }
-       private String[] getInputs() {
+   
+ @Override
+    public String[] getInputs() {
         String[] inputs = new String[1];
-        System.out.println("=======================================");
+           System.out.println("=======================================");
         System.out.println("G - What is the goal of the game?\n" + "M - How to move\n" + "D - Doors open \n" + "T - Tools\n" + "Q - Quit ");
         System.out.println("=======================================");
-        boolean valid = false;
-        while (valid == false){
-           System.out.println("Enter a key: ");
-           Scanner input;
-           input = new Scanner(System.in);
-           String scannedInput = input.nextLine();
-           String inputWithTrim = scannedInput.trim();
-           System.out.println("=======================================");
-           
-           if (inputWithTrim.length() <1){
-               System.out.println("=======================================");
-               System.out.println("You must enter a non-blank value");
-               System.out.println("=======================================");
-               continue;
-           }
-           else{
-                inputs[0] = inputWithTrim;
-                valid = true;
-            }
-        }
+        String mainInput = this.getInputs("\n Enter a key: ");
+        inputs[0] = mainInput;
+
         return inputs;
 
-        } 
+    }
 
-    private boolean doAction(String[] inputs) {
+@Override
+    public boolean doAction(String[] inputs) {
        String menuItem = inputs[0];
        menuItem = inputs[0].toUpperCase();
        switch (menuItem) {

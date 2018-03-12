@@ -19,7 +19,7 @@ public class GetOut {
     public static void main(String[] args) {
         
         StartProgramView startProgramView = new StartProgramView();
-        startProgramView.displayStartProgramView();
+        startProgramView.display();
         
         
         // TODO code application logic here
