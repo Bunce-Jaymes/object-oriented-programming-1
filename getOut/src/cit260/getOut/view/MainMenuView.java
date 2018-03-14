@@ -23,10 +23,13 @@ public class MainMenuView extends View {
     @Override
     public String[] getInputs() {
         String[] inputs = new String[1];
-        System.out.println("=======================================");
-        System.out.println("N - Start new game \n" + "R - Load saved game\n" + "H - Get help on how to play the game\n" + "E - Exit ");
-        System.out.println("=======================================");
-        String mainInput = this.getInputs("\n Enter a key: ");
+        String mainInput = this.getInputs("=======================================\n"
+                + "N - Start new game \n" 
+                + "R - Load saved game\n" 
+                + "H - Get help on how to play the game\n" 
+                + "E - Exit\n"
+                + "=======================================\n"
+                + "Enter a key: ");
         inputs[0] = mainInput;
 
         return inputs;
@@ -63,7 +66,7 @@ public class MainMenuView extends View {
         GameControl.createNewGame(GetOut.getPlayer());
 
         GameMenuView gameMenuView = new GameMenuView();
-        gameMenuView.displayGameMenuGame();
+        gameMenuView.display();
     }
 
     private void restartGame() {

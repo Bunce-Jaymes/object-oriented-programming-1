@@ -19,8 +19,8 @@ class GameMenuView extends View {
     @Override
     public String[] getInputs() {
         String[] inputs = new String[1];
-        String mainInput = this.getInputs("V - View Map\n"+ 
-                "M - Move player\n"
+        String mainInput = this.getInputs("V - View Map\n"
+                + "M - Move player\n"
                 + "I - View inventory\n"
                 + "T - View list of tools\n"
                 + "E - Explore location\n"
@@ -30,8 +30,9 @@ class GameMenuView extends View {
                 + "D - To demo pinCodeDoorControl View\n"
                 + "F - To demo forceLockDoorControl View\n"
                 + "A - To demo roomTwo View\n"
+                + "Z - To demo DoorNum3\n"
                 + "=======================================\n"
-                + "nter a key: ");
+                + "Enter a key:");
         inputs[0] = mainInput;
 
         return inputs;
@@ -73,6 +74,9 @@ class GameMenuView extends View {
                 break;
             case "A":
                 roomTwoView();
+                break;
+            case "Z":
+                doorNum3();
                 break;
 
             default:
@@ -127,6 +131,12 @@ class GameMenuView extends View {
     private void demoTestView02() {
         DemoTestView02 demoTestView2 = new DemoTestView02();
         demoTestView2.displayDemoTestView02();
+        System.out.println("=======================================");
+    }
+
+    private void doorNum3() {
+        DemoDoorNum3 demodoorNum3 = new DemoDoorNum3();
+        demodoorNum3.display();
         System.out.println("=======================================");
     }
 

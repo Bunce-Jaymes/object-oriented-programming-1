@@ -14,47 +14,46 @@ import java.util.Scanner;
 public abstract class View implements ViewInterface {
 
     public View() {
-        
+
     }
-    
-    @Override 
-    public void display(){
-           boolean endView = false;
+
+    @Override
+    public void display() {
+        boolean endView = false;
         do {
             String[] inputs = getInputs();
             String value = inputs[0].toUpperCase();
-            
-            if (value.equals("Q")){
+
+            if (value.equals("Q")) {
                 return;
             }
             endView = doAction(inputs);
         } while (endView != true);
     }
+
     @Override
-       public String getInputs(String promptMessage) {
-           
-            String[] inputs = new String[1];
-            boolean valid = false;
-        while (valid == false){
-          System.out.println(promptMessage); 
-           Scanner input;
-           input = new Scanner(System.in);
-           String scannedInput = input.nextLine();
-           String inputWithTrim = scannedInput.trim().toUpperCase();
-           System.out.println("=======================================");
-           
-           if (inputWithTrim.length() <1){
-               System.out.println("You must enter a non-blank value");
-               System.out.println("=======================================");
-               continue;
-           }
-           else{
+    public String getInputs(String promptMessage) {
+
+        String[] inputs = new String[1];
+        boolean valid = false;
+        while (valid == false) {
+            System.out.println(promptMessage);
+            Scanner input;
+            input = new Scanner(System.in);
+            String scannedInput = input.nextLine();
+            String inputWithTrim = scannedInput.trim().toUpperCase();
+            System.out.println("=======================================");
+
+            if (inputWithTrim.length() < 1) {
+                System.out.println("You must enter a non-blank value");
+                System.out.println("=======================================");
+                continue;
+            } else {
                 inputs[0] = inputWithTrim;
                 return inputWithTrim;
             }
         }
         return null;
     }
-    
 
 }
