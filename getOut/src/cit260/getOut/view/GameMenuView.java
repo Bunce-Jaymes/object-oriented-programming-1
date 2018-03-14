@@ -5,90 +5,79 @@
  */
 package cit260.getOut.view;
 
-
 import java.util.Scanner;
 
 /**
  *
  * @author jayme
  */
-class GameMenuView {
-    public void displayGameMenuGame(){
-        boolean endView = false;
-        do {
-            String[] inputs = getInputs();
-            String value = inputs[0].toUpperCase();
-            
-            if (value.equals('Q') || inputs.length < 1 ){
-                return;
-            }
-            endView = doAction(inputs);
-        } while (endView != true);
+class GameMenuView extends View {
+
+    public GameMenuView() {
     }
 
-    private String[] getInputs() {
-       String[] inputs = new String[1];
-        System.out.println("V - View Map\n" +
-        "M - Move player\n" +
-        "I - View inventory\n" +
-        "T - View list of tools\n" +
-        "E - Explore location\n" +
-        "S - Save game\n" +
-        "H - Help\n" +
-        "X - Exit game menu\n" + 
-        "D - To demo pinCodeDoorControl View\n" +
-        "F - To demo forceLockDoorControl View");
-        System.out.println("=======================================");
-                
-        boolean valid = false;
-        while (valid == false){
-           System.out.println("Enter a key: ");
-           Scanner input;
-           input = new Scanner(System.in);
-           String scannedInput = input.nextLine();
-           String inputWithTrim = scannedInput.trim();
-           System.out.println("=======================================");
-           
-           if (inputWithTrim.length() <1){
-               System.out.println("You must enter a correct, non-blank value");
-               continue;
-           }
-           else{
-                inputs[0] = inputWithTrim;
-                valid = true;
-            }
-        }
+    @Override
+    public String[] getInputs() {
+        String[] inputs = new String[1];
+        String mainInput = this.getInputs("V - View Map\n"+ 
+                "M - Move player\n"
+                + "I - View inventory\n"
+                + "T - View list of tools\n"
+                + "E - Explore location\n"
+                + "S - Save game\n"
+                + "H - Help\n"
+                + "X - Exit game menu\n"
+                + "D - To demo pinCodeDoorControl View\n"
+                + "F - To demo forceLockDoorControl View\n"
+                + "A - To demo roomTwo View\n"
+                + "=======================================\n"
+                + "nter a key: ");
+        inputs[0] = mainInput;
+
         return inputs;
+    }
 
-        } 
+    @Override
+    public boolean doAction(String[] inputs) {
+        String menuItem = inputs[0];
+        menuItem = inputs[0].toUpperCase();
+        switch (menuItem) {
+            case "V":
+                viewMap();
+                break;
+            case "M":
+                movePlayer();
+                break;
+            case "I":
+                viewInventory();
+                break;
+            case "T":
+                viewToolList();
+                break;
+            case "E":
+                exploreLocation();
+                break;
+            case "S":
+                saveGame();
+                break;
+            case "H":
+                helpMenu();
+                break;
+            case "X":
+                return true;
+            case "D":
+                demoTestView();
+                break;
+            case "F":
+                demoTestView02();
+                break;
+            case "A":
+                roomTwoView();
+                break;
 
-    private boolean doAction(String[] inputs) {
-      String menuItem = inputs[0];
-       menuItem = inputs[0].toUpperCase();
-       switch (menuItem) {
-           case "V": viewMap();
-           break;
-           case "M": movePlayer();
-           break;
-           case "I": viewInventory();
-           break;
-           case "T": viewToolList();
-           break;
-           case "E": exploreLocation();
-           break;
-           case "S": saveGame();
-           break;
-           case "H": helpMenu();
-           break;
-           case "X": return true;
-           case "D": demoTestView();
-           break;
-           case "F": demoTestView02();
-           break;
-         
-           
-           default : System.out.println("Invalid menu item.");
-       }
+            default:
+                System.out.println("Invalid menu item.");
+        }
         return false;
     }
 
@@ -140,8 +129,10 @@ class GameMenuView {
         demoTestView2.displayDemoTestView02();
         System.out.println("=======================================");
     }
-       
 
-   
+    private void roomTwoView() {
+        RoomTwo roomTwoView = new RoomTwo();
+        roomTwoView.display();
+        System.out.println("=======================================");
+    }
 }
-
