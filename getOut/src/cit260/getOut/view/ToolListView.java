@@ -58,7 +58,7 @@ public class ToolListView {
         }
         return inputs;
 
-        } 
+    } 
 
     private boolean doAction(String[] inputs) {
       String menuItem = inputs[0];
@@ -75,10 +75,7 @@ public class ToolListView {
            case "S": sand();
            break;
            case "X": return true;
-            case "D": demoTestView();
-           break;
-           
-           
+          
            default : System.out.println("Invalid menu item.");
        }
         return false;
@@ -107,12 +104,6 @@ public class ToolListView {
 
     private void sand() {
         System.out.println("***Sand Called***");
-        System.out.println("=======================================");
-        }
-
-    private void demoTestView() {
-        DemoTestView demoTestView = new DemoTestView();
-        demoTestView.displayDemoTestView();
         System.out.println("=======================================");
     }
         
