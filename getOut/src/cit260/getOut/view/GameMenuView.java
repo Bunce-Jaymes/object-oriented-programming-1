@@ -37,7 +37,11 @@ class GameMenuView {
         "H - Help\n" +
         "X - Exit game menu\n" + 
         "D - To demo pinCodeDoorControl View\n" +
-        "F - To demo forceLockDoorControl View");
+        "F - To demo forceLockDoorControl View\n" +
+        "Z - To demo door number threce View");
+        
+        
+        
         System.out.println("=======================================");
                 
         boolean valid = false;
@@ -84,6 +88,8 @@ class GameMenuView {
            case "D": demoTestView();
            break;
            case "F": demoTestView02();
+           break;
+           case "Z": doorNum3();
            break;
          
            
@@ -140,6 +146,14 @@ class GameMenuView {
         demoTestView2.displayDemoTestView02();
         System.out.println("=======================================");
     }
+    
+     private void doorNum3() {
+        DemoDoorNum3 demodoorNum3 = new DemoDoorNum3();
+        demodoorNum3.display();
+        System.out.println("=======================================");
+    }
+
+ 
        
 
    
