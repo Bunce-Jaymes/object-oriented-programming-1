@@ -5,6 +5,9 @@
  */
 package cit260.getOut.control;
 
+import cit260.getOut.model.Actor;
+import cit260.getOut.model.Game;
+import cit260.getOut.model.Map;
 import cit260.getOut.model.Player;
 import getout.GetOut;
 
@@ -13,8 +16,9 @@ import getout.GetOut;
  * @author jayme
  */
 public class GameControl {
-    public static Player savePlayer(String name){
-        if (name == null || name.length() < 1){
+
+    public static Player savePlayer(String name) {
+        if (name == null || name.length() < 1) {
             return null;
         }
         Player player = new Player();
@@ -23,10 +27,37 @@ public class GameControl {
 
         return player;
     }
-    public static void createNewGame(Player player){
-        System.out.println("=======================================");
-        System.out.println("This works in the createNewGame");
-        System.out.println("=======================================");
+
+    public static int createNewGame(Player player) {
+        if (player == null) {
+            return -1;
+        }
+        Game game = new Game();
+        game.setPlayer(player);
+        GetOut.setCurrentGame(game);
+        
+        //Save the list of actors in the Game object
+        //items = createItems()
+        int noOfRows = 16;
+        int noOfColumns = 16;
+        
+        Map map = MapControl.createMap(noOfRows, noOfColumns);
+            if (map == null) {
+                return -1;
+            }
+            game.setMap(map);
+        
+        return 1;
     }
+    
+    
+
+
+
+
+
+  
+    
+    
     
 }

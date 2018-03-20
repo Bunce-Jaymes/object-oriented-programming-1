@@ -18,11 +18,27 @@ public class Game implements Serializable{
     private Player player;
     private Map map;
     private Actor actor;
-    private Item item;
+    private Item[] item;
     
     public Game() {
     }
 
+    public double getStartTime() {
+        return startTime;
+    }
+
+    public void setStartTime(double startTime) {
+        this.startTime = startTime;
+    }
+
+    public Item[] getItem() {
+        return item;
+    }
+
+    public void setItem(Item[] item) {
+        this.item = item;
+    }
+    
     public Actor getActor() {
         return actor;
     }
@@ -30,7 +46,6 @@ public class Game implements Serializable{
     public void setActor(Actor actor) {
         this.actor = actor;
     }
-
 
 
     public Map getMap() {

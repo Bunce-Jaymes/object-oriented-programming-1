@@ -15,7 +15,7 @@ import java.util.ArrayList;
 public enum Actor{
     
     Victim("Raphael", "He has been captured by Sinaloa Cartel", new Point(0,0));
-    
+   
     private String name;
     private String description;
     private Point coordinates;
