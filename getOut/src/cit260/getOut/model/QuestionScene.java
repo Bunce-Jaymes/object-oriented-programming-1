@@ -10,7 +10,7 @@ import java.util.ArrayList;
  *
  * @author jayme
  */
-public class QuestionScene implements Serializable {
+public class QuestionScene extends RegularSceneType {
     private ArrayList<Question> questions = new ArrayList<Question>();
     
     public QuestionScene() {

@@ -17,7 +17,7 @@ public class Map implements Serializable{
     private int columnCount;
     private ArrayList<Location> location = new ArrayList<Location>();
     private ArrayList<Game> games = new ArrayList<Game>();
-    private boolean visited;
+    public static boolean visited;
 
     public Map() {
     }
