@@ -106,14 +106,14 @@ class MapControl {
         scenes[SceneType.finish.ordinal()] = finish;
         
         UnknownScene unknown = new UnknownScene();
-        blank.setDescription("You sucessful turn each key and recieve your reward. Your freedom.");
-        blank.setBlocked("Yes");
-        blank.setSymbol("");
-        blank.setRoom(3);
-        blank.setDoor(5);
-        blank.setLocation();
+        unknown.setDescription("???");
+        unknown.setBlocked("No");
+        unknown.setSymbol("???");
+        unknown.setRoom(3);
+        unknown.setDoor(5);
+        unknown.setLocation();
         
-        scenes[SceneType.finish.ordinal()] = finish;
+        scenes[SceneType.unknown.ordinal()] = unknown;
         
         return null;
     }
