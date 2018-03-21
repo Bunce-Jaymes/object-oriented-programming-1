@@ -9,6 +9,6 @@ package cit260.getOut.model;
  *
  * @author jayme
  */
-class UnknownScene {
+public class UnknownScene extends RegularSceneType {
     
 }
