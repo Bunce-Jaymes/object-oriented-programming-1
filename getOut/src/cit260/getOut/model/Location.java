@@ -19,6 +19,46 @@ public class Location implements Serializable{
     private Actor actor;
     private Map map;
     private ArrayList<RegularSceneType> sceneType = new ArrayList<RegularSceneType>();
+    private boolean visited;
+    
+     private RegularSceneType scene;
+
+    public Map getMap() {
+        return map;
+    }
+
+    public boolean isVisited() {
+        return visited;
+    }
+
+    public void setVisited(boolean visited) {
+        this.visited = visited;
+    }
+    
+    
+
+    public void setMap(Map map) {
+        this.map = map;
+    }
+
+    public ArrayList<RegularSceneType> getSceneType() {
+        return sceneType;
+    }
+
+    public void setSceneType(ArrayList<RegularSceneType> sceneType) {
+        this.sceneType = sceneType;
+    }
+
+    public RegularSceneType getScene() {
+        return scene;
+    }
+
+    public void setScene(RegularSceneType scene) {
+        this.scene = scene;
+    }
+     
+     
+  
   
 
     public Location() {

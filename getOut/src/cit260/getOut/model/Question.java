@@ -17,7 +17,6 @@ public class Question implements Serializable {
     private String answer;
     private ArrayList<QuestionScene> questionsScenes = new ArrayList<QuestionScene>();
     
-
     public Question() {
     }
 

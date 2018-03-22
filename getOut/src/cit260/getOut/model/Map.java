@@ -15,28 +15,21 @@ public class Map implements Serializable{
     
     private int rowCount;
     private int columnCount;
-    private ArrayList<Location> location = new ArrayList<Location>();
+    private Location[][] locations = new Location[100][100];
     private ArrayList<Game> games = new ArrayList<Game>();
-    public static boolean visited;
+    
 
     public Map() {
     }
 
-    public ArrayList<Location> getLocation() {
-        return location;
+    public Location[][] getLocations() {
+        return locations;
     }
 
-    public void setLocation(ArrayList<Location> location) {
-        this.location = location;
+    public void setLocations(Location[][] locations) {
+        this.locations = locations;
     }
 
-    public boolean isVisited() {
-        return visited;
-    }
-
-    public void setVisited(boolean visited) {
-        this.visited = visited;
-    }
 
     public ArrayList<Game> getGames() {
         return games;

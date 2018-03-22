@@ -5,6 +5,10 @@
  */
 package cit260.getOut.view;
 
+import cit260.getOut.model.Game;
+import cit260.getOut.model.Location;
+import cit260.getOut.model.Map;
+import getout.GetOut;
 import java.util.Scanner;
 
 /**
@@ -86,8 +90,31 @@ class GameMenuView extends View {
     }
 
     private void viewMap() {
-        System.out.println("***viewMap Called***");
-        System.out.println("=======================================");
+        Game game = GetOut.getCurrentGame();
+
+        Location[][] location = GetOut.getCurrentGame().getMap().getLocations();
+        System.out.println("Get Out Map");
+        System.out.println("1\t2\t3\t4\t5\t6\t7\t8\t9\t10");
+
+        for (int i = 0; i < location.length; i++) {
+            System.out.println("_\t_\t_\t_\t_\t_\t_\t_\t_\t_");
+            System.out.println("1\n2\n3\n4\n5\n6\n7\n8\n9\n10");
+
+            for (int c = 0; c < location[0].length; c++) {
+                System.out.println("|\n|\n|\n|\n|\n|\n|\n|\n|\n|");
+
+                Location loc = location[i][c];
+                if (loc.isVisited()) {
+                    loc.getScene().getSymbol();
+                } else {
+                    System.out.println("??");
+                }
+                System.out.println("|\n|\n|\n|\n|\n|\n|\n|\n|\n|");
+            }
+
+            System.out.println("_\t_\t_\t_\t_\t_\t_\t_\t_\t_");
+        }
+
     }
 
     private void movePlayer() {

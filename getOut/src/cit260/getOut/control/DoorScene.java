@@ -3,17 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package cit260.getOut.model;
+package cit260.getOut.control;
+
+import cit260.getOut.model.RegularSceneType;
 
 /**
  *
  * @author jayme
  */
-public enum SceneType {
-    question,
-    blank,
-    start,
-    finish,
-    wall,
-    door;
+public class DoorScene extends RegularSceneType {
+    
 }

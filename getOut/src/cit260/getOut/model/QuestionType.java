@@ -9,11 +9,12 @@ package cit260.getOut.model;
  *
  * @author jayme
  */
-public enum SceneType {
-    question,
-    blank,
-    start,
-    finish,
-    wall,
-    door;
+public enum QuestionType {
+    
+    door,
+    move,
+    inspect,
+    grab,
+    use;
+    
 }

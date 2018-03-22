@@ -35,11 +35,8 @@ public class GameControl {
         Game game = new Game();
         game.setPlayer(player);
         GetOut.setCurrentGame(game);
-        
-        //Save the list of actors in the Game object
-        //items = createItems()
-        int noOfRows = 16;
-        int noOfColumns = 16;
+        int noOfRows = 10;
+        int noOfColumns = 10;
         
         Map map = MapControl.createMap(noOfRows, noOfColumns);
             if (map == null) {

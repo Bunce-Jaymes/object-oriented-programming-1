@@ -5,6 +5,7 @@
  */
 package cit260.getOut.model;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Objects;
 /**
  *
@@ -16,8 +17,25 @@ public class RegularSceneType implements Serializable {
     private String symbol;
     private double room;
     private double door;
+
+    public ArrayList<Question> getQuestions() {
+        return questions;
+    }
+
+    public void setQuestions(ArrayList<Question> questions) {
+        this.questions = questions;
+    }
+
+    public ArrayList<Item> getItems() {
+        return items;
+    }
+
+    public void setItems(ArrayList<Item> items) {
+        this.items = items;
+    }
     private Location location;
-    
+    private ArrayList<Question> questions = new ArrayList<Question>();
+    private ArrayList<Item> items = new ArrayList<Item>();
 
     public RegularSceneType() {
     }
@@ -114,6 +132,7 @@ public class RegularSceneType implements Serializable {
         }
         return true;
     }
+    
 
     
     
