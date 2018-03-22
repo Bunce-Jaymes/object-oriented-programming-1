@@ -94,27 +94,26 @@ class GameMenuView extends View {
 
         Location[][] location = GetOut.getCurrentGame().getMap().getLocations();
         System.out.println("Get Out Map");
-        System.out.println("1\t2\t3\t4\t5\t6\t7\t8\t9\t10");
+        System.out.println("     1     2     3     4     5     6     7     8     9     10");
 
         for (int i = 0; i < location.length; i++) {
-            System.out.println("_\t_\t_\t_\t_\t_\t_\t_\t_\t_");
-            System.out.println("1\n2\n3\n4\n5\n6\n7\n8\n9\n10");
+            int num = i + 1;
+            System.out.print("----------------------------------------------------------------\n" + num);
 
             for (int c = 0; c < location[0].length; c++) {
-                System.out.println("|\n|\n|\n|\n|\n|\n|\n|\n|\n|");
+                System.out.print(" | ");
 
                 Location loc = location[i][c];
                 if (loc.isVisited()) {
-                    loc.getScene().getSymbol();
+                    String symbol = loc.getScene().getSymbol();
+                    System.out.print(symbol);
                 } else {
-                    System.out.println("??");
+                    System.out.print("???");
                 }
-                System.out.println("|\n|\n|\n|\n|\n|\n|\n|\n|\n|");
             }
-
-            System.out.println("_\t_\t_\t_\t_\t_\t_\t_\t_\t_");
+            System.out.print(" |\n");
         }
-
+          System.out.print("----------------------------------------------------------------\n");
     }
 
     private void movePlayer() {

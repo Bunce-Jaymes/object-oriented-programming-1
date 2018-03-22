@@ -82,7 +82,7 @@ class MapControl {
         StartScene start = new StartScene();
         start.setDescription("You began in a dark room. Dazed and confuse you being to wonder and exlpore this new place.");
         start.setBlocked("No");
-        start.setSymbol("S");
+        start.setSymbol("STR");
         start.setRoom(1);
         start.setDoor(1);
 
@@ -91,7 +91,7 @@ class MapControl {
         FinishScene finish = new FinishScene();
         blank.setDescription("You see a door with three locks, maybe we need three keys.");
         blank.setBlocked("Yes");
-        blank.setSymbol("EXIT");
+        blank.setSymbol("ESC");
         blank.setRoom(3);
         blank.setDoor(5);
 
@@ -100,7 +100,7 @@ class MapControl {
         WallScene wall = new WallScene();
         wall.setDescription("Ther is a wall before you.");
         wall.setBlocked("Yes");
-        wall.setSymbol("|");
+        wall.setSymbol("| |");
 
         scenes[SceneType.wall.ordinal()] = wall;
         
@@ -161,6 +161,7 @@ class MapControl {
         locations[0][9].setScene(scenes[SceneType.wall.ordinal()]);
         locations[1][0].setScene(scenes[SceneType.wall.ordinal()]);
         locations[1][1].setScene(scenes[SceneType.start.ordinal()]);
+        locations[1][1].setVisited(true);
         locations[1][2].setScene(scenes[SceneType.door.ordinal()]);
         locations[1][3].setScene(scenes[SceneType.blank.ordinal()]);
         locations[1][4].setScene(scenes[SceneType.blank.ordinal()]);
