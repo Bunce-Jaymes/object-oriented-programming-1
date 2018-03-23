@@ -89,18 +89,18 @@ class MapControl {
         scenes[SceneType.start.ordinal()] = start;
 
         FinishScene finish = new FinishScene();
-        blank.setDescription("You see a door with three locks, maybe we need three keys.");
-        blank.setBlocked("Yes");
-        blank.setSymbol("ESC");
-        blank.setRoom(3);
-        blank.setDoor(5);
+        finish.setDescription("You see a door with three locks, maybe we need three keys.");
+        finish.setBlocked("Yes");
+        finish.setSymbol("ESC");
+        finish.setRoom(3);
+        finish.setDoor(5);
 
         scenes[SceneType.finish.ordinal()] = finish;
 
         WallScene wall = new WallScene();
         wall.setDescription("Ther is a wall before you.");
         wall.setBlocked("Yes");
-        wall.setSymbol("| |");
+        wall.setSymbol("###");
 
         scenes[SceneType.wall.ordinal()] = wall;
         
@@ -150,16 +150,27 @@ class MapControl {
     private static void assignScenesToLocation(RegularSceneType[] scenes, Location[][] locations) {
 
         locations[0][0].setScene(scenes[SceneType.wall.ordinal()]);
+        locations[0][0].setVisited(true);
         locations[0][1].setScene(scenes[SceneType.wall.ordinal()]);
+        locations[0][1].setVisited(true);
         locations[0][2].setScene(scenes[SceneType.wall.ordinal()]);
+        locations[0][2].setVisited(true);
         locations[0][3].setScene(scenes[SceneType.wall.ordinal()]);
+        locations[0][3].setVisited(true);
         locations[0][4].setScene(scenes[SceneType.wall.ordinal()]);
+        locations[0][4].setVisited(true);
         locations[0][5].setScene(scenes[SceneType.wall.ordinal()]);
+        locations[0][5].setVisited(true);
         locations[0][6].setScene(scenes[SceneType.wall.ordinal()]);
+        locations[0][6].setVisited(true);
         locations[0][7].setScene(scenes[SceneType.wall.ordinal()]);
+        locations[0][7].setVisited(true);
         locations[0][8].setScene(scenes[SceneType.wall.ordinal()]);
+        locations[0][8].setVisited(true);
         locations[0][9].setScene(scenes[SceneType.wall.ordinal()]);
+        locations[0][9].setVisited(true);
         locations[1][0].setScene(scenes[SceneType.wall.ordinal()]);
+        locations[1][0].setVisited(true);
         locations[1][1].setScene(scenes[SceneType.start.ordinal()]);
         locations[1][1].setVisited(true);
         locations[1][2].setScene(scenes[SceneType.door.ordinal()]);
@@ -170,7 +181,9 @@ class MapControl {
         locations[1][7].setScene(scenes[SceneType.blank.ordinal()]);
         locations[1][8].setScene(scenes[SceneType.question.ordinal()]);
         locations[1][9].setScene(scenes[SceneType.wall.ordinal()]);
+        locations[1][9].setVisited(true);
         locations[2][0].setScene(scenes[SceneType.wall.ordinal()]);
+        locations[2][0].setVisited(true);
         locations[2][1].setScene(scenes[SceneType.wall.ordinal()]);
         locations[2][2].setScene(scenes[SceneType.wall.ordinal()]);
         locations[2][3].setScene(scenes[SceneType.blank.ordinal()]);
@@ -180,7 +193,9 @@ class MapControl {
         locations[2][7].setScene(scenes[SceneType.blank.ordinal()]);
         locations[2][8].setScene(scenes[SceneType.blank.ordinal()]);
         locations[2][9].setScene(scenes[SceneType.wall.ordinal()]);
+        locations[2][9].setVisited(true);
         locations[3][0].setScene(scenes[SceneType.wall.ordinal()]);
+        locations[3][0].setVisited(true);
         locations[3][1].setScene(scenes[SceneType.question.ordinal()]);
         locations[3][2].setScene(scenes[SceneType.blank.ordinal()]);
         locations[3][3].setScene(scenes[SceneType.blank.ordinal()]);
@@ -190,7 +205,9 @@ class MapControl {
         locations[3][7].setScene(scenes[SceneType.blank.ordinal()]);
         locations[3][8].setScene(scenes[SceneType.blank.ordinal()]);
         locations[3][9].setScene(scenes[SceneType.wall.ordinal()]);
-        locations[3][0].setScene(scenes[SceneType.wall.ordinal()]);
+        locations[3][9].setVisited(true);
+        locations[4][0].setScene(scenes[SceneType.wall.ordinal()]);
+        locations[4][0].setVisited(true);
         locations[4][1].setScene(scenes[SceneType.wall.ordinal()]);
         locations[4][2].setScene(scenes[SceneType.wall.ordinal()]);
         locations[4][3].setScene(scenes[SceneType.wall.ordinal()]);
@@ -200,7 +217,9 @@ class MapControl {
         locations[4][7].setScene(scenes[SceneType.wall.ordinal()]);
         locations[4][8].setScene(scenes[SceneType.door.ordinal()]);
         locations[4][9].setScene(scenes[SceneType.wall.ordinal()]);
+        locations[4][9].setVisited(true);
         locations[5][0].setScene(scenes[SceneType.wall.ordinal()]);
+        locations[5][0].setVisited(true);
         locations[5][1].setScene(scenes[SceneType.blank.ordinal()]);
         locations[5][2].setScene(scenes[SceneType.blank.ordinal()]);
         locations[5][3].setScene(scenes[SceneType.blank.ordinal()]);
@@ -210,7 +229,9 @@ class MapControl {
         locations[5][7].setScene(scenes[SceneType.blank.ordinal()]);
         locations[5][8].setScene(scenes[SceneType.blank.ordinal()]);
         locations[5][9].setScene(scenes[SceneType.wall.ordinal()]);
+        locations[5][9].setVisited(true);
         locations[6][0].setScene(scenes[SceneType.wall.ordinal()]);
+        locations[6][0].setVisited(true);
         locations[6][1].setScene(scenes[SceneType.blank.ordinal()]);
         locations[6][2].setScene(scenes[SceneType.blank.ordinal()]);
         locations[6][3].setScene(scenes[SceneType.blank.ordinal()]);
@@ -220,7 +241,9 @@ class MapControl {
         locations[6][7].setScene(scenes[SceneType.blank.ordinal()]);
         locations[6][8].setScene(scenes[SceneType.blank.ordinal()]);
         locations[6][9].setScene(scenes[SceneType.wall.ordinal()]);
+        locations[6][9].setVisited(true);
         locations[7][0].setScene(scenes[SceneType.wall.ordinal()]);
+        locations[7][0].setVisited(true);
         locations[7][1].setScene(scenes[SceneType.wall.ordinal()]);
         locations[7][2].setScene(scenes[SceneType.wall.ordinal()]);
         locations[7][3].setScene(scenes[SceneType.wall.ordinal()]);
@@ -230,8 +253,11 @@ class MapControl {
         locations[7][7].setScene(scenes[SceneType.blank.ordinal()]);
         locations[7][8].setScene(scenes[SceneType.question.ordinal()]);
         locations[7][9].setScene(scenes[SceneType.wall.ordinal()]);
+        locations[7][9].setVisited(true);
         locations[8][0].setScene(scenes[SceneType.wall.ordinal()]);
+        locations[8][0].setVisited(true);
         locations[8][1].setScene(scenes[SceneType.finish.ordinal()]);
+        locations[8][1].setVisited(true);
         locations[8][2].setScene(scenes[SceneType.wall.ordinal()]);
         locations[8][3].setScene(scenes[SceneType.wall.ordinal()]);
         locations[8][4].setScene(scenes[SceneType.wall.ordinal()]);
@@ -240,16 +266,27 @@ class MapControl {
         locations[8][7].setScene(scenes[SceneType.blank.ordinal()]);
         locations[8][8].setScene(scenes[SceneType.blank.ordinal()]);
         locations[8][9].setScene(scenes[SceneType.wall.ordinal()]);
+        locations[8][9].setVisited(true);
         locations[9][0].setScene(scenes[SceneType.wall.ordinal()]);
+        locations[9][0].setVisited(true);
         locations[9][1].setScene(scenes[SceneType.wall.ordinal()]);
+        locations[9][1].setVisited(true);
         locations[9][2].setScene(scenes[SceneType.wall.ordinal()]);
+        locations[9][2].setVisited(true);
         locations[9][3].setScene(scenes[SceneType.wall.ordinal()]);
+        locations[9][3].setVisited(true);
         locations[9][4].setScene(scenes[SceneType.wall.ordinal()]);
+        locations[9][4].setVisited(true);
         locations[9][5].setScene(scenes[SceneType.wall.ordinal()]);
+        locations[9][5].setVisited(true);
         locations[9][6].setScene(scenes[SceneType.wall.ordinal()]);
+        locations[9][6].setVisited(true);
         locations[9][7].setScene(scenes[SceneType.wall.ordinal()]);
+        locations[9][7].setVisited(true);
         locations[9][8].setScene(scenes[SceneType.wall.ordinal()]);
+        locations[9][8].setVisited(true);
         locations[9][9].setScene(scenes[SceneType.wall.ordinal()]);
+        locations[9][9].setVisited(true);
 
     }
 
