@@ -24,8 +24,6 @@ import java.util.Objects;
          private Actor actor;
          
          
-         
-         
          Item(String itemType, String description){
              this.itemType = itemType;
              this.description = description;

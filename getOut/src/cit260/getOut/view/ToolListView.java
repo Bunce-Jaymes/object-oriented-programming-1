@@ -5,6 +5,8 @@
  */
 package cit260.getOut.view;
 
+import cit260.getOut.model.Item;
+import java.util.Arrays;
 import java.util.Scanner;
 
 /**
@@ -29,18 +31,26 @@ public class ToolListView {
     }
 
     private String[] getInputs() {
+        String[] items = new String[5];
+        items[0]= "H - " + Item.Hammer.name();
+        items[1]= "D - " + Item.DriftPin.name();
+        items[2]= "L - " + Item.LockPick.name();
+        items[3]= "T - " + Item.Sand.name();
+        items[4]= "S - " + Item.TwoLiterBottle.name();
+        
+        Arrays.sort(items);
+        
+        for (int i = 0; i < items.length; i++){
+            System.out.println(items[i]);
+        }
+        System.out.println("E - Exit");
+        
        String[] inputs = new String[1];
-        System.out.println("H - Hammer\n" +
-        "P - Drift Pin\n" +
-        "L - Lock Pick\n" +
-        "T - Two Liter Bottle\n" +
-        "S - Sand\n" +
-        "E - Exit");
-        System.out.println("=======================================");
+       System.out.println("=======================================");
                 
         boolean valid = false;
         while (valid == false){
-           System.out.println("Enter a key: ");
+           System.out.println("Enter a key to see more information about a item: ");
            Scanner input;
            input = new Scanner(System.in);
            String scannedInput = input.nextLine();
@@ -66,7 +76,7 @@ public class ToolListView {
        switch (menuItem) {
            case "H": hammer();
            break;
-           case "P": driftPin();
+           case "D": driftPin();
            break;
            case "L": lockPick();
            break;
@@ -74,7 +84,7 @@ public class ToolListView {
            break;
            case "S": sand();
            break;
-           case "X": return true;
+           case "E": return true;
           
            default : System.out.println("Invalid menu item.");
        }
