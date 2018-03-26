@@ -5,6 +5,7 @@
  */
 package cit260.getOut.view;
 
+import static cit260.getOut.control.ItemSort.sortList;
 import cit260.getOut.model.Item;
 import java.util.Arrays;
 import java.util.Scanner;
@@ -31,17 +32,10 @@ public class ToolListView {
     }
 
     private String[] getInputs() {
-        String[] items = new String[5];
-        items[0]= "H - " + Item.Hammer.name();
-        items[1]= "D - " + Item.DriftPin.name();
-        items[2]= "L - " + Item.LockPick.name();
-        items[3]= "T - " + Item.Sand.name();
-        items[4]= "S - " + Item.TwoLiterBottle.name();
+        String[] itemPrint = sortList();
         
-        Arrays.sort(items);
-        
-        for (int i = 0; i < items.length; i++){
-            System.out.println(items[i]);
+        for (int i = 0; i < itemPrint.length; i++){
+            System.out.println(itemPrint[i]);
         }
         System.out.println("E - Exit");
         
