@@ -34,8 +34,8 @@ public class ToolListView {
     private String[] getInputs() {
         String[] itemPrint = sortList();
         
-        for (int i = 0; i < itemPrint.length; i++){
-            System.out.println(itemPrint[i]);
+        for (String item: itemPrint){
+            System.out.println(item);
         }
         System.out.println("E - Exit");
         
