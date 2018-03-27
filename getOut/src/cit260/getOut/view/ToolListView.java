@@ -36,6 +36,7 @@ public class ToolListView {
         
         for (String item: itemPrint){
             System.out.println(item);
+            
         }
         System.out.println("E - Exit");
         
@@ -113,4 +114,12 @@ public class ToolListView {
         
     }
     
+
+//helo
+
+
+
+
+
+
 
