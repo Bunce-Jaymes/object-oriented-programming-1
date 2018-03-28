@@ -5,6 +5,8 @@
  */
 package cit260.getOut.control;
 
+import cit260.geOut.exceptions.GameControlExceptions;
+import cit260.geOut.exceptions.MapControlExceptions;
 import cit260.getOut.model.Actor;
 import cit260.getOut.model.Game;
 import cit260.getOut.model.Map;
@@ -17,9 +19,9 @@ import getout.GetOut;
  */
 public class GameControl {
 
-    public static Player savePlayer(String name) {
+    public static Player savePlayer(String name) throws GameControlExceptions {
         if (name == null || name.length() < 1) {
-            return null;
+            throw new GameControlExceptions("Name cannot be blank.");
         }
         Player player = new Player();
         player.setName(name);
@@ -28,9 +30,9 @@ public class GameControl {
         return player;
     }
 
-    public static int createNewGame(Player player) {
+    public static int createNewGame(Player player) throws MapControlExceptions {
         if (player == null) {
-            return -1;
+            throw new MapControlExceptions("There is no player saved");
         }
         Game game = new Game();
         game.setPlayer(player);
@@ -40,7 +42,7 @@ public class GameControl {
         
         Map map = MapControl.createMap(noOfRows, noOfColumns);
             if (map == null) {
-                return -1;
+                throw new MapControlExceptions("Map creatation failure");
             }
             game.setMap(map);
         

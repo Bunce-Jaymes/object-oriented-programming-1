@@ -5,6 +5,7 @@
  */
 package cit260.getOut.view;
 
+import cit260.geOut.exceptions.PinExceptions;
 import cit260.getOut.model.Game;
 import cit260.getOut.model.Location;
 import cit260.getOut.model.Map;
@@ -148,7 +149,7 @@ class GameMenuView extends View {
         System.out.println("=======================================");
     }
 
-    private void demoTestView() {
+    private void demoTestView() throws PinExceptions {
         DemoTestView demoTestView = new DemoTestView();
         demoTestView.displayDemoTestView();
         System.out.println("=======================================");

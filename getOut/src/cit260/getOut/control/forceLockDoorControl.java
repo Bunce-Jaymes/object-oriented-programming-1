@@ -5,21 +5,23 @@
  */
 package cit260.getOut.control;
 
+import cit260.geOut.exceptions.ForceExceptions;
+
 /**
  *
  * @author Sam Prettyman
  */
 public class forceLockDoorControl {
-     public static double calcForce(double mass, double acceleration){
+     public static double calcForce(double mass, double acceleration) throws ForceExceptions{
 
         //pounds = Math.random() * 40 + 1;
 
         if (mass <= 0){
-            return -1.0;
+            throw new ForceExceptions("Mass cannot be less than 0");
         }
 
         else if (acceleration <=0 ){
-            return -2.0;
+            throw new ForceExceptions("Acceleration cannot be less than 0");
         }
       double force = mass * acceleration;
       
@@ -27,7 +29,7 @@ public class forceLockDoorControl {
           return force;
         }
         else{
-            return 0;
+            throw new ForceExceptions("You slam the door, but it doesn't budge. Maybe we need more or less force");
         }
     }   
 }

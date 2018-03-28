@@ -5,6 +5,7 @@
  */
 package cit260.getOut.view;
 
+import cit260.geOut.exceptions.MapControlExceptions;
 import cit260.getOut.control.GameControl;
 import cit260.getOut.model.*;
 import cit260.getOut.view.*;
@@ -60,7 +61,7 @@ public class MainMenuView extends View {
         return false;
     }
 
-    private void startNewGame() {
+    private void startNewGame() throws MapControlExceptions {
         Game newGame = new Game();
 
         GameControl.createNewGame(GetOut.getPlayer());

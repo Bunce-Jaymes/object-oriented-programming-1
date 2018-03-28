@@ -5,36 +5,40 @@
  */
 package cit260.getOut.control;
 
+import cit260.geOut.exceptions.SandExceptions;
+
 /**
  *
  * @author Jaymes Bunce and Sam Prettyman
  */
 public class sandWeightDoorControl {
     
-    public static int calcWeight(double guessLiters, double pounds){
+    public static double calcWeight(double guessLiters, double pounds) throws SandExceptions{
    
         if (pounds < 1 || pounds > 40){
-           return -4;
+        throw new SandExceptions("Pounds cannot be less than 1 or greater than 40");
   
         //pounds = Math.random() * 40 + 1;
         
         }
            
         if (guessLiters < 0 ){
-            return -1;
+            throw new SandExceptions("Liters cannot be less than 0");
         }
             
         if(guessLiters > 15){
-            return -2;
+            throw new SandExceptions("Liters cannot be more than 15");
         }
             
         double guessWeight = (guessLiters * 2.2);
         guessWeight = Math.round(guessWeight * 1);    
         if (pounds == guessWeight){
-            return 1;
+            return guessWeight;
         }
         else{
-            return -3;
+            throw new SandExceptions("The door clicks but does not open, looks like it didnt work.");
         }    
     }
+    
+   
 }

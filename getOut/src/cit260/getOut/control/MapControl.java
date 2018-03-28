@@ -5,6 +5,7 @@
  */
 package cit260.getOut.control;
 
+import cit260.geOut.exceptions.MapControlExceptions;
 import cit260.getOut.model.WallScene;
 import cit260.getOut.model.BlankScene;
 import cit260.getOut.model.FinishScene;
@@ -25,9 +26,9 @@ import javafx.scene.Scene;
  */
 class MapControl {
 
-    public static Map createMap(int rowCount, int columnCount) {
+    public static Map createMap(int rowCount, int columnCount) throws MapControlExceptions {
         if (rowCount < 0 || columnCount < 0) {
-            return null;
+            throw new MapControlExceptions("Map cannot have a row or column count less than 0");
         }
 
         Map map = new Map();
@@ -46,9 +47,9 @@ class MapControl {
         return map;
     }
 
-    private static Location[][] createLocations(int rows, int columns) {
+    private static Location[][] createLocations(int rows, int columns) throws MapControlExceptions {
         if (rows < 1 || columns < 1) {
-            return null;
+            throw new MapControlExceptions("createLocation cannot have a row or column count less than 0");
         }
 
         Location[][] locations = new Location[rows][columns];
