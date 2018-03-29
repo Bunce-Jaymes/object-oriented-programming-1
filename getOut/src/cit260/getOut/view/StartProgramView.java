@@ -5,12 +5,15 @@
  */
 package cit260.getOut.view;
 
+import cit260.geOut.exceptions.GameControlExceptions;
 import cit260.getOut.control.GameControl;
 import static cit260.getOut.control.GameControl.savePlayer;
 import cit260.getOut.view.MainMenuView;
 import cit260.getOut.model.Player;
 import java.io.Serializable;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -35,7 +38,12 @@ public class StartProgramView extends View {
     @Override
     public boolean doAction(String[] inputs) {
         String playerName = inputs[0];
-        Player player = GameControl.savePlayer(playerName);
+        Player player = null;
+        try {
+            player = GameControl.savePlayer(playerName);
+        } catch (GameControlExceptions ex) {
+            System.out.println("Could not save player name");
+        }
         if (player == null) {
             System.out.println("=======================================");
             System.out.println("Could not create player. " + "Enter a different name.");

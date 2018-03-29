@@ -12,11 +12,11 @@ import java.util.Objects;
  */
      public enum Item {
          
-         Hammer("Hammer", "Hammer"),
-         DriftPin("Drift Pin","Drift Pin"),
-         LockPick("Lock Pick", "Lock Pick"),
-         TwoLiterBottle("Two Liter Bottle","Two Liter Bottle"),
-         Sand("Sand", "Sand");
+         Hammer("Hammer", "A rusty old hammer, could be useful in breaking something"),
+         DriftPin("Drift Pin","A drift pen, could be useful in breaking something"),
+         Paper("Paper", "A torn piece of paper, it has '(X / 2 + 32)^24' written on it"),
+         TwoLiterBottle("Two Liter Bottle","A plastic two liter bottle, used to hold Coke back in the day"),
+         Sand("Sand", "Sand, its sandy");
          
          private String itemType;
          private String description;
@@ -28,6 +28,7 @@ import java.util.Objects;
              this.itemType = itemType;
              this.description = description;
          }
+         
 
     public String getItemType() {
         return itemType;

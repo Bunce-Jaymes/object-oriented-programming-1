@@ -14,13 +14,40 @@ import java.util.ArrayList;
  */
 public enum Actor{
     
-    Victim("Raphael", "He has been captured by Sinaloa Cartel", new Point(0,0));
+    Victim("Raphael", "He has been captured by Sinaloa Cartel", new Point(2,2));
    
     private String name;
     private String description;
     private Point coordinates;
+    private int x;
+    private int y;
     private Game game; 
     private ArrayList<Player> player1 = new ArrayList<Player>();
+
+    public int getX() {
+        return x;
+    }
+
+    public void setX(int x) {
+        this.x = x;
+    }
+
+    public int getY() {
+        return y;
+    }
+
+    public void setY(int y) {
+        this.y = y;
+    }
+
+    public ArrayList<Player> getPlayer1() {
+        return player1;
+    }
+
+    public void setPlayer1(ArrayList<Player> player1) {
+        this.player1 = player1;
+    }
+    
     
     public String getName() {
         return name;

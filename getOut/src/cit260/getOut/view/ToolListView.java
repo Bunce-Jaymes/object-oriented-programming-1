@@ -73,7 +73,7 @@ public class ToolListView {
            break;
            case "D": driftPin();
            break;
-           case "L": lockPick();
+           case "P": paper();
            break;
            case "T": twoLiterBottle();
            break;
@@ -87,39 +87,28 @@ public class ToolListView {
     }
 
     private void hammer() {
-        System.out.println("***Hammer Called***");
+        System.out.println(Item.Hammer.getDescription());
         System.out.println("=======================================");
     }
 
     private void driftPin() {
-        System.out.println("***Drift Pin Called***");
+        System.out.println(Item.DriftPin.getDescription());
         System.out.println("=======================================");
     }
 
-    private void lockPick() {
-        System.out.println("***Lock Pick Called***");
+    private void paper() {
+        System.out.println(Item.Paper.getDescription());
         System.out.println("=======================================");
     }
 
     private void twoLiterBottle() {
-      
-        System.out.println("***Two liter Bottle Called");
+        System.out.println(Item.TwoLiterBottle.getDescription());
         System.out.println("=======================================");
     }
 
     private void sand() {
-        System.out.println("***Sand Called***");
+        System.out.println(Item.Sand.getDescription());
         System.out.println("=======================================");
     }
         
     }
-    
-
-//helo
-
-
-
-
-
-
-

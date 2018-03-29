@@ -6,9 +6,11 @@
 package cit260.getOut.control;
 
 import cit260.geOut.exceptions.MapControlExceptions;
+import cit260.getOut.model.Actor;
 import cit260.getOut.model.WallScene;
 import cit260.getOut.model.BlankScene;
 import cit260.getOut.model.FinishScene;
+import cit260.getOut.model.Game;
 import cit260.getOut.model.Location;
 import cit260.getOut.model.Map;
 import cit260.getOut.model.Question;
@@ -17,6 +19,8 @@ import cit260.getOut.model.RegularSceneType;
 import cit260.getOut.model.SceneType;
 import cit260.getOut.model.StartScene;
 import cit260.getOut.model.QuestionType;
+import getout.GetOut;
+import java.awt.Point;
 import java.util.ArrayList;
 import javafx.scene.Scene;
 
@@ -104,7 +108,7 @@ class MapControl {
         wall.setSymbol("###");
 
         scenes[SceneType.wall.ordinal()] = wall;
-        
+
         DoorScene door = new DoorScene();
         door.setDescription("");
         door.setBlocked("No");
@@ -291,4 +295,34 @@ class MapControl {
 
     }
 
+    public static Location moveActor(Actor Raphael, int newRow, int newColumn) throws MapControlExceptions {
+        Raphael.getName();
+        Raphael.getDescription();
+        Raphael.setX(2);
+        Raphael.setY(2);
+        if (Raphael == null) {
+            throw new MapControlExceptions("Actor has no value");
+        }
+        Game game = GetOut.getCurrentGame();
+        Map map = game.getMap();
+        Location[][] locations = map.getLocations();
+
+        if (newRow < 1 || newRow > map.getRowCount() || newColumn < 1 || newColumn > map.getColumnCount()) {
+            throw new MapControlExceptions("Invalid row and column");
+        }
+        int currentRow = Raphael.getX();
+        int currentColumn = Raphael.getY();
+        
+        ;
+// oldLocation = get the location from the locations
+// array at the current row and column
+// newLocation = get the location at the new row and column
+// set actor in the oldLocation to null
+// set actor in the newLocation to the actor
+// set row in actor to newRow
+// set column in actor to newColumn
+        Location newLocation = null;
+
+        return newLocation;
+    }
 }

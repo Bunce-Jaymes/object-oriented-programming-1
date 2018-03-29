@@ -19,9 +19,9 @@ public class ItemSort {
         
         items[0]= "H - " + Item.Hammer.name();
         items[1]= "D - " + Item.DriftPin.name();
-        items[2]= "L - " + Item.LockPick.name();
-        items[3]= "T - " + Item.Sand.name();
-        items[4]= "S - " + Item.TwoLiterBottle.name();
+        items[2]= "P - " + Item.Paper.name();
+        items[3]= "S - " + Item.Sand.name();
+        items[4]= "T - " + Item.TwoLiterBottle.name();
         
         Arrays.sort(items);
         

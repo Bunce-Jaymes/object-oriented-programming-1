@@ -11,6 +11,8 @@ import cit260.getOut.model.*;
 import cit260.getOut.view.*;
 import getout.GetOut;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -25,9 +27,9 @@ public class MainMenuView extends View {
     public String[] getInputs() {
         String[] inputs = new String[1];
         String mainInput = this.getInputs("=======================================\n"
-                + "N - Start new game \n" 
-                + "R - Load saved game\n" 
-                + "H - Get help on how to play the game\n" 
+                + "N - Start new game \n"
+                + "R - Load saved game\n"
+                + "H - Get help on how to play the game\n"
                 + "E - Exit\n"
                 + "=======================================\n"
                 + "Enter a key: ");
@@ -36,14 +38,20 @@ public class MainMenuView extends View {
         return inputs;
 
     }
+
     @Override
     public boolean doAction(String[] inputs) {
         String menuItem = inputs[0];
         menuItem = inputs[0].toUpperCase();
         switch (menuItem) {
-            case "N":
-                startNewGame();
-                break;
+            case "N": {
+                try {
+                    startNewGame();
+                } catch (MapControlExceptions ex) {
+                    System.out.println("Error in swtich statement");
+                }
+            }
+            break;
             case "R":
                 restartGame();
                 break;

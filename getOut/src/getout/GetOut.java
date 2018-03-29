@@ -17,9 +17,14 @@ public class GetOut {
     private static Player player = null;
 
     public static void main(String[] args) {
-        
-        StartProgramView startProgramView = new StartProgramView();
+        try{
+            StartProgramView startProgramView = new StartProgramView();
         startProgramView.display();
+        }
+        catch (Throwable e){
+            System.out.println("Main Class error");
+        }
+        
     }
 
     public static Game getCurrentGame() {

@@ -13,15 +13,8 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/GitHub/cit260-getout/getOut/src/cit260/getOut/view/GameMenuView.java</file>
-            <file>file:/C:/GitHub/cit260-getout/getOut/src/cit260/geOut/exceptions/SandExceptions.java</file>
-            <file>file:/C:/GitHub/cit260-getout/getOut/src/cit260/getOut/control/forceLockDoorControl.java</file>
-            <file>file:/C:/GitHub/cit260-getout/getOut/src/cit260/geOut/exceptions/forceException.java</file>
-            <file>file:/C:/GitHub/cit260-getout/getOut/src/cit260/geOut/exceptions/InventoryControlException.java</file>
-            <file>file:/C:/GitHub/cit260-getout/getOut/src/cit260/getOut/view/ToolListView.java</file>
-            <file>file:/C:/GitHub/cit260-getout/getOut/src/cit260/getOut/control/ItemSort.java</file>
-            <file>file:/C:/GitHub/cit260-getout/getOut/src/cit260/getOut/control/sandWeightDoorControl.java</file>
-            <file>file:/C:/GitHub/cit260-getout/getOut/src/cit260/geOut/exceptions/PinExceptions.java</file>
-            <file>file:/C:/GitHub/cit260-getout/getOut/src/cit260/getOut/control/pinCodeDoorControl.java</file>
+            <file>file:/C:/GitHub/cit260-getout/getOut/src/cit260/getOut/control/MapControl.java</file>
+            <file>file:/C:/GitHub/cit260-getout/getOut/src/cit260/getOut/control/GameControl.java</file>
         </group>
     </open-files>
 </project-private>

@@ -11,6 +11,8 @@ import cit260.getOut.model.Location;
 import cit260.getOut.model.Map;
 import getout.GetOut;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -27,15 +29,15 @@ class GameMenuView extends View {
         String mainInput = this.getInputs("V - View Map\n"
                 + "M - Move player\n"
                 + "I - View inventory\n"
-                + "T - View list of tools\n"
+//                + "T - View list of tools\n"
                 + "E - Explore location\n"
                 + "S - Save game\n"
                 + "H - Help\n"
                 + "X - Exit game menu\n"
-                + "D - To demo pinCodeDoorControl View\n"
-                + "F - To demo forceLockDoorControl View\n"
-                + "A - To demo roomTwo View\n"
-                + "Z - To demo DoorNum3\n"
+//                + "D - To demo pinCodeDoorControl View\n"
+//                + "F - To demo forceLockDoorControl View\n"
+//                + "A - To demo roomTwo View\n"
+//                + "Z - To demo DoorNum3\n"
                 + "=======================================\n"
                 + "Enter a key:");
         inputs[0] = mainInput;
@@ -57,9 +59,9 @@ class GameMenuView extends View {
             case "I":
                 viewInventory();
                 break;
-            case "T":
-                viewToolList();
-                break;
+//            case "T":
+//                viewToolList();
+//                break;
             case "E":
                 exploreLocation();
                 break;
@@ -72,18 +74,23 @@ class GameMenuView extends View {
             case "X":
                 return true;
             case "D":
-                demoTestView();
-                break;
-            case "F":
-                demoTestView02();
-                break;
-            case "A":
-                roomTwoView();
-                break;
-            case "Z":
-                doorNum3();
-                break;
-
+//        {
+//            try {
+//                demoTestView();
+//            } catch (PinExceptions ex) {
+//                System.out.println("Error in switch statement");
+//            }
+//        }
+//                break;
+//            case "F":
+//                demoTestView02();
+//                break;
+//            case "A":
+//                roomTwoView();
+//                break;
+//            case "Z":
+//                doorNum3();
+//                break;
             default:
                 System.out.println("Invalid menu item.");
         }
@@ -127,11 +134,11 @@ class GameMenuView extends View {
         System.out.println("=======================================");
     }
 
-    private void viewToolList() {
-        ToolListView toolListView = new ToolListView();
-        toolListView.displayoolListView();
-        System.out.println("=======================================");
-    }
+//    private void viewToolList() {
+//        ToolListView toolListView = new ToolListView();
+//        toolListView.displayoolListView();
+//        System.out.println("=======================================");
+//    }
 
     private void exploreLocation() {
         System.out.println("***exploreLocation Called***");
@@ -149,27 +156,27 @@ class GameMenuView extends View {
         System.out.println("=======================================");
     }
 
-    private void demoTestView() throws PinExceptions {
-        DemoTestView demoTestView = new DemoTestView();
-        demoTestView.displayDemoTestView();
-        System.out.println("=======================================");
-    }
-
-    private void demoTestView02() {
-        DemoTestView02 demoTestView2 = new DemoTestView02();
-        demoTestView2.displayDemoTestView02();
-        System.out.println("=======================================");
-    }
-
-    private void doorNum3() {
-        DemoDoorNum3 demodoorNum3 = new DemoDoorNum3();
-        demodoorNum3.display();
-        System.out.println("=======================================");
-    }
-
-    private void roomTwoView() {
-        RoomTwo roomTwoView = new RoomTwo();
-        roomTwoView.display();
-        System.out.println("=======================================");
-    }
+//    private void demoTestView() throws PinExceptions {
+//        DemoTestView demoTestView = new DemoTestView();
+//        demoTestView.displayDemoTestView();
+//        System.out.println("=======================================");
+//    }
+//
+//    private void demoTestView02() {
+//        DemoTestView02 demoTestView2 = new DemoTestView02();
+//        demoTestView2.displayDemoTestView02();
+//        System.out.println("=======================================");
+//    }
+//
+//    private void doorNum3() {
+//        DemoDoorNum3 demodoorNum3 = new DemoDoorNum3();
+//        demodoorNum3.display();
+//        System.out.println("=======================================");
+//    }
+//
+//    private void roomTwoView() {
+//        RoomTwo roomTwoView = new RoomTwo();
+//        roomTwoView.display();
+//        System.out.println("=======================================");
+//    }
 }
