@@ -6,6 +6,7 @@
  */
 package cit260.getOut.view;
 
+import cit260.geOut.exceptions.ForceExceptions;
 import cit260.getOut.control.forceLockDoorControl;
 import cit260.getOut.control.pinCodeDoorControl;
 import java.util.Random;
@@ -16,7 +17,7 @@ import java.util.Scanner;
  */
 class DemoTestView02 {
 
-    void displayDemoTestView02() {
+    void displayDemoTestView02() throws ForceExceptions {
 
         boolean endView = false;
         do {
@@ -46,7 +47,8 @@ class DemoTestView02 {
             Scanner input;
             input = new Scanner(System.in);
             String acceleration = input.nextLine();
-            acceleration = acceleration.trim();
+
+        acceleration = acceleration.trim();
             System.out.println("=======================================");
 
             System.out.println("=======================================");
@@ -73,12 +75,15 @@ class DemoTestView02 {
         return inputs;
     }
 
-    private boolean doAction(String[] inputs) {
+    private boolean doAction(String[] inputs) throws ForceExceptions {
         boolean complete = false;
 
         try {
+            
             double acceleration = Double.parseDouble(inputs[0]);
             double mass = Double.parseDouble(inputs[1]);
+            double calcForce = forceLockDoorControl.calcForce(mass, acceleration);
+            System.out.println("The door is unlocked");
             complete = true;
             
         } catch (NumberFormatException nfe) {
