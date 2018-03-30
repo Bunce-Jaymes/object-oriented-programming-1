@@ -102,10 +102,10 @@ class GameMenuView extends View {
 
         Location[][] location = GetOut.getCurrentGame().getMap().getLocations();
         System.out.println("Get Out Map");
-        System.out.println("     1     2     3     4     5     6     7     8     9     10");
+        System.out.println("     0     1     2     3     4     5     6     7     8     9");
 
         for (int i = 0; i < location.length; i++) {
-            int num = i + 1;
+            int num = i + 1 - 1;
             System.out.print("----------------------------------------------------------------\n" + num);
 
             for (int c = 0; c < location[0].length; c++) {
@@ -122,10 +122,13 @@ class GameMenuView extends View {
             System.out.print(" |\n");
         }
           System.out.print("----------------------------------------------------------------\n");
+          System.out.println("You are currently located at: " + GetOut.getCurrentGame().getActor().getX() +"," + GetOut.getCurrentGame().getActor().getY());
+          System.out.println();
     }
 
     private void movePlayer() {
-        System.out.println("***movePlayer Called***");
+        MoveActorView moveActorView = new MoveActorView();
+        moveActorView.display();
         System.out.println("=======================================");
     }
 

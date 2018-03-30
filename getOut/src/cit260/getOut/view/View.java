@@ -22,7 +22,7 @@ public abstract class View implements ViewInterface {
         boolean endView = false;
         do {
             String[] inputs = getInputs();
-            String value = inputs[0].toUpperCase();
+            String value = inputs[0].toUpperCase().trim();
 
             if (value.equals("Q")) {
                 return;

@@ -14,11 +14,10 @@ import java.util.ArrayList;
  */
 public enum Actor{
     
-    Victim("Raphael", "He has been captured by Sinaloa Cartel", new Point(2,2));
+    Victim("Raphael", "He has been captured by Sinaloa Cartel", 1, 1);
    
     private String name;
     private String description;
-    private Point coordinates;
     private int x;
     private int y;
     private Game game; 
@@ -64,22 +63,19 @@ public enum Actor{
     public void setGame(Game game) {
         this.game = game;
     }
-    
-
-    public Point getCoordinates() {
-        return coordinates;
-    }
-
 
     @Override
     public String toString() {
-        return "Actor{" + "name=" + name + ", description=" + description + ", coordinates=" + coordinates + '}';
+        return "Actor{" + "name=" + name + ", description=" + description + ", x=" + x + ", y=" + y + ", game=" + game + ", player1=" + player1 + '}';
     }
-    
-    Actor(String name, String description, Point coordainates) {
+
+    private Actor(String name, String description, int x, int y) {
         this.name = name;
         this.description = description;
-        this.coordinates = coordinates;
-}
+        this.x = x;
+        this.y = y;
+    }
+    
+    
 }
 

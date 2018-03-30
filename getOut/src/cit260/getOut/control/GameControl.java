@@ -37,6 +37,7 @@ public class GameControl {
         Game game = new Game();
         game.setPlayer(player);
         GetOut.setCurrentGame(game);
+        game.setActor(Actor.Victim);
         int noOfRows = 10;
         int noOfColumns = 10;
         

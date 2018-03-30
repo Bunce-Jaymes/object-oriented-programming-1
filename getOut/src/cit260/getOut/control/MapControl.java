@@ -28,7 +28,7 @@ import javafx.scene.Scene;
  *
  * @author jayme
  */
-class MapControl {
+public class MapControl {
 
     public static Map createMap(int rowCount, int columnCount) throws MapControlExceptions {
         if (rowCount < 0 || columnCount < 0) {
@@ -47,7 +47,7 @@ class MapControl {
 
         assignQuestionsToScenes(questions, scenes);
         assignScenesToLocation(scenes, locations);
-
+       
         return map;
     }
 
@@ -80,7 +80,7 @@ class MapControl {
         BlankScene blank = new BlankScene();
         blank.setDescription("");
         blank.setBlocked("No");
-        blank.setSymbol("");
+        blank.setSymbol("   ");
 
         scenes[SceneType.blank.ordinal()] = blank;
 
@@ -111,8 +111,8 @@ class MapControl {
 
         DoorScene door = new DoorScene();
         door.setDescription("");
-        door.setBlocked("No");
-        door.setSymbol("/");
+        door.setBlocked("Yes");
+        door.setSymbol(" / ");
 
         scenes[SceneType.door.ordinal()] = door;
 
@@ -295,34 +295,94 @@ class MapControl {
 
     }
 
-    public static Location moveActor(Actor Raphael, int newRow, int newColumn) throws MapControlExceptions {
-        Raphael.getName();
-        Raphael.getDescription();
-        Raphael.setX(2);
-        Raphael.setY(2);
-        if (Raphael == null) {
+    public static void moveActor(Actor actor, String direction) throws MapControlExceptions {
+        int checkColumn = 0;
+        int checkRow = 0;
+        int setColumn = 0;
+        int setRow = 0;
+        boolean columnChange = false;
+        boolean rowChange = false;
+        
+        if (actor == null) {
             throw new MapControlExceptions("Actor has no value");
         }
         Game game = GetOut.getCurrentGame();
         Map map = game.getMap();
         Location[][] locations = map.getLocations();
-
-        if (newRow < 1 || newRow > map.getRowCount() || newColumn < 1 || newColumn > map.getColumnCount()) {
-            throw new MapControlExceptions("Invalid row and column");
-        }
-        int currentRow = Raphael.getX();
-        int currentColumn = Raphael.getY();
         
-        ;
-// oldLocation = get the location from the locations
-// array at the current row and column
-// newLocation = get the location at the new row and column
-// set actor in the oldLocation to null
-// set actor in the newLocation to the actor
-// set row in actor to newRow
-// set column in actor to newColumn
-        Location newLocation = null;
-
-        return newLocation;
-    }
+        int currentRow = actor.getX();
+        int currentColumn = actor.getY();
+        
+        if ("U".equals(direction)){
+            checkRow = currentRow - 1;
+            if (checkRow > 9){
+                throw new MapControlExceptions("The row that you are wishing to move to is greater than the map size");
+            }
+            if (checkRow < 0){
+                throw new MapControlExceptions("The row that you are wishing to move to is less than the map size");
+            }
+            setRow = checkRow;
+            rowChange = true;
+        }
+        if ("D".equals(direction)){
+            checkRow = currentRow + 1;
+            if (checkRow > 9){
+                throw new MapControlExceptions("The row that you are wishing to move to is greater than the map size");
+            }
+            if (checkRow < 0){
+                throw new MapControlExceptions("The row that you are wishing to move to is less than the map size");
+            }
+            setRow = checkRow;
+            rowChange = true;
+        }
+        if ("L".equals(direction)){
+            checkColumn = currentColumn - 1;
+            if (checkColumn > 9){
+                throw new MapControlExceptions("The row that you are wishing to move to is greater than the map size");
+            }
+            if (checkColumn < 0){
+                throw new MapControlExceptions("The row that you are wishing to move to is less than the map size");
+            }
+            setColumn = checkColumn;
+            columnChange = true;
+        }
+        if ("R".equals(direction)){
+            checkColumn = currentColumn + 1;
+            if (checkColumn > 9){
+                throw new MapControlExceptions("The row that you are wishing to move to is greater than the map size");
+            }
+            if (checkColumn < 0){
+                throw new MapControlExceptions("The row that you are wishing to move to is less than the map size");
+            }
+            setColumn = checkColumn;
+            columnChange = true;
+        }
+        
+        if (columnChange == true){
+            Location checkScene = locations[currentRow][setColumn];
+            String sceneType = checkScene.getScene().getBlocked();
+            if (sceneType == "Yes"){
+                checkScene.setVisited(true);
+                throw new MapControlExceptions("Can not move to that position, it is blocked");
+            }else{
+                checkScene.setVisited(true);
+                checkScene.setActor(actor);
+                actor.setX(currentRow);
+                actor.setY(setColumn);
+            }
+        }
+        if (rowChange == true){
+            Location checkScene = locations[setRow][currentColumn];
+            String sceneType = checkScene.getScene().getBlocked();
+            if (sceneType == "Yes"){
+                checkScene.setVisited(true);
+                throw new MapControlExceptions("Can not move to that position, it is blocked");
+            }else{
+                checkScene.setVisited(true);
+                checkScene.setActor(actor);
+                actor.setX(setRow);
+                actor.setY(currentColumn);
+            }
+        } 
+    }   
 }

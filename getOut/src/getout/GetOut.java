@@ -17,13 +17,13 @@ public class GetOut {
     private static Player player = null;
 
     public static void main(String[] args) {
-        try{
+//        try{
             StartProgramView startProgramView = new StartProgramView();
         startProgramView.display();
-        }
-        catch (Throwable e){
-            System.out.println("Main Class error");
-        }
+//        }
+//        catch (Throwable e){
+//            System.out.println("Main Class error");
+//        }
         
     }
 
