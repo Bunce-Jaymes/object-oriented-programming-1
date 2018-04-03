@@ -8,14 +8,17 @@ package cit260.getOut.view;
 
 import cit260.geOut.exceptions.PinExceptions;
 import cit260.getOut.control.pinCodeDoorControl;
+import java.io.IOException;
 import java.util.Random;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
  * @author jayme
  */
-class DemoTestView {
+class DemoTestView extends View{
 
     void displayDemoTestView() throws PinExceptions {
         boolean endView = false;
@@ -29,7 +32,8 @@ class DemoTestView {
         } while (endView != true);
     }
 
-    private String[] getInputs() {
+    @Override
+    public String[] getInputs() {
         String[] inputs = new String[2];
 
         Random rand = new Random();
@@ -56,10 +60,10 @@ class DemoTestView {
             System.out.println("=======================================");
             System.out.println("Enter code: ");
 
-            Scanner input;
-            input = new Scanner(System.in);
-            String scannedInput = input.nextLine();
-            String guessCode = scannedInput.trim();
+            String input;
+            try {
+                input = this.keyboard.readLine();
+                 String guessCode = input.trim();
             int guessLength = guessCode.length();
 
             System.out.println("=======================================");
@@ -73,11 +77,17 @@ class DemoTestView {
                 inputs[1] = hintString;
                 valid = true;
             }
+            } catch (IOException ex) {
+                System.out.println(ex.getMessage());
+            }
+            
+           
         }
         return inputs;
     }
 
-    private boolean doAction(String[] inputs) throws NumberFormatException, PinExceptions {
+    @Override
+    public boolean doAction(String[] inputs) throws NumberFormatException {
 
         boolean complete = false;
         int guessCode = 0;
@@ -87,7 +97,11 @@ class DemoTestView {
             guessCode = Integer.parseInt(inputs[0]);
             hint = Integer.parseInt(inputs[1]);
 
-            int endCalc = pinCodeDoorControl.calcCode(hint, guessCode);
+            try {
+                int endCalc = pinCodeDoorControl.calcCode(hint, guessCode);
+            } catch (PinExceptions ex) {
+                System.out.println(ex.getMessage());
+            }
 
             System.out.println("You entered the code correctly!\nThe lock clicks and the heavy door creaks open.");
             complete = true;

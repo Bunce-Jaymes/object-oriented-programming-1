@@ -5,13 +5,23 @@
  */
 package cit260.getOut.view;
 
+import getout.GetOut;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
  * @author Samuel Prettyman
  */
 public abstract class View implements ViewInterface {
+
+    private String message;
+    protected final BufferedReader keyboard = GetOut.getInFile();
+    protected final PrintWriter console = GetOut.getOutFile();
 
     public View() {
 
@@ -33,27 +43,32 @@ public abstract class View implements ViewInterface {
 
     @Override
     public String getInputs(String promptMessage) {
-
+        String inputWithTrim = null;
+        String input = null;
         String[] inputs = new String[1];
         boolean valid = false;
-        while (valid == false) {
-            System.out.println(promptMessage);
-            Scanner input;
-            input = new Scanner(System.in);
-            String scannedInput = input.nextLine();
-            String inputWithTrim = scannedInput.trim().toUpperCase();
-            System.out.println("=======================================");
-
-            if (inputWithTrim.length() < 1) {
-                System.out.println("You must enter a non-blank value");
+        try {
+            while (valid == false) {
+                System.out.println(promptMessage);
+                input = this.keyboard.readLine();
+                inputWithTrim = input.trim().toUpperCase();
                 System.out.println("=======================================");
-                continue;
-            } else {
-                inputs[0] = inputWithTrim;
-                return inputWithTrim;
+
+                if (inputWithTrim.length() < 1) {
+                    System.out.println("You must enter a non-blank value");
+                    System.out.println("=======================================");
+                    continue;
+
+                } else {
+                    inputs[0] = inputWithTrim;
+                    return inputWithTrim;
+                }
             }
+        } catch (IOException ex) {
+            System.out.println("Error reading input " + ex.getMessage());
         }
-        return null;
+       
+        return inputWithTrim;
     }
 
 }
