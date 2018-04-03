@@ -80,7 +80,7 @@ class GameMenuView extends View {
             } catch (PinExceptions ex) {
                 System.out.println(ex.getMessage());
             }
-        }
+        }   
                 break;
             case "F":
                 demoTestView02();
