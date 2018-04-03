@@ -5,6 +5,7 @@
  */
 package cit260.getOut.view;
 
+import cit260.geOut.exceptions.ForceExceptions;
 import cit260.geOut.exceptions.PinExceptions;
 import cit260.getOut.model.Game;
 import cit260.getOut.model.Location;
@@ -78,12 +79,18 @@ class GameMenuView extends View {
             try {
                 demoTestView();
             } catch (PinExceptions ex) {
-                System.out.println(ex.getMessage());
+                System.out.println("Error in switch statement");
             }
-        }   
+        }
                 break;
             case "F":
+        {
+            try {
                 demoTestView02();
+            } catch (ForceExceptions ex) {
+                System.out.println(ex.getMessage());
+            }
+        }
                 break;
             case "A":
                 roomTwoView();
@@ -165,7 +172,7 @@ class GameMenuView extends View {
         System.out.println("=======================================");
     }
 
-    private void demoTestView02() {
+    private void demoTestView02() throws ForceExceptions {
         DemoTestView02 demoTestView2 = new DemoTestView02();
         demoTestView2.displayDemoTestView02();
         System.out.println("=======================================");
