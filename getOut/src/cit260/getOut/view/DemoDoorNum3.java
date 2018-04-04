@@ -42,23 +42,23 @@ public class DemoDoorNum3 extends View {
            break;
        
            
-           default : System.out.println("Invalid menu item.");
+           default : ErrorView.display(this.getClass().getName(),"Invalid menu item");
        }
         return false;
     }
     private void viewWood() {
-        System.out.println("You found a rusty hammer.”");
-        System.out.println("=======================================");
+        this.console.println("You found a rusty hammer.”");
+        this.console.println("=======================================");
        
     }
 
     private void viewRefrige() {
-        System.out.println("You found a drift pen.");
-        System.out.println("=======================================");
+        this.console.println("You found a drift pen.");
+        this.console.println("=======================================");
     }
     private void viewCabinets() {
-        System.out.println("You found a mysterious red key.");
-        System.out.println("=======================================");
+        this.console.println("You found a mysterious red key.");
+        this.console.println("=======================================");
       
 
     }

@@ -56,7 +56,7 @@ public class MoveActorView extends View {
                 complete = true;
                 return complete;
             } catch (MapControlExceptions ex) {
-                System.out.println(ex.getMessage());
+                ErrorView.display(this.getClass().getName(),ex.getMessage());
                 complete = true;
                 return complete;
             }

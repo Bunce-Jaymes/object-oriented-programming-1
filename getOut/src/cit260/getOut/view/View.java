@@ -49,14 +49,14 @@ public abstract class View implements ViewInterface {
         boolean valid = false;
         try {
             while (valid == false) {
-                System.out.println(promptMessage);
+                this.console.println(promptMessage);
                 input = this.keyboard.readLine();
                 inputWithTrim = input.trim().toUpperCase();
-                System.out.println("=======================================");
+                this.console.println("=======================================");
 
                 if (inputWithTrim.length() < 1) {
-                    System.out.println("You must enter a non-blank value");
-                    System.out.println("=======================================");
+                    ErrorView.display(this.getClass().getName(),"You must enter a non-blank value");
+                    ErrorView.display(this.getClass().getName(),"=======================================");
                     continue;
 
                 } else {
@@ -65,7 +65,7 @@ public abstract class View implements ViewInterface {
                 }
             }
         } catch (IOException ex) {
-            System.out.println("Error reading input " + ex.getMessage());
+            ErrorView.display(this.getClass().getName(),"Error reading input " + ex.getMessage());
         }
        
         return inputWithTrim;

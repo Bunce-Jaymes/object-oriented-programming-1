@@ -20,7 +20,7 @@ public class sandWeightDoorControlTest {
     
     @Test
     public void testCalcWeight() throws SandExceptions {
-        System.out.println("\tSand Weight Case 1:");
+        this.console.println("\tSand Weight Case 1:");
         double guessLiters = 5;
         double pounds = 11;
         int expResult = 1;
@@ -30,7 +30,7 @@ public class sandWeightDoorControlTest {
         
     @Test
     public void testCalcWeight2() throws SandExceptions {
-        System.out.println("\tSand Weight Test Case 2:");
+        this.console.println("\tSand Weight Test Case 2:");
         double guessLiters = 3;
         double pounds = 23;
         int expResult = -3;
@@ -40,7 +40,7 @@ public class sandWeightDoorControlTest {
     
     @Test
     public void testCalcWeight3() throws SandExceptions {
-        System.out.println("\tSand Weight Test Case 3:");
+        this.console.println("\tSand Weight Test Case 3:");
         double guessLiters = -2;
         double pounds = 2;
         int expResult = -1;
@@ -50,7 +50,7 @@ public class sandWeightDoorControlTest {
     
     @Test
     public void testCalcWeight4() throws SandExceptions {
-        System.out.println("\tSand Weight Test Case 4:");
+        this.console.println("\tSand Weight Test Case 4:");
         double guessLiters = 2;
         double pounds = -3;
         int expResult = -4;
@@ -60,7 +60,7 @@ public class sandWeightDoorControlTest {
     @Test
     
     public void testCalcWeight5() throws SandExceptions {
-        System.out.println("\tcalcWeight Test Case 5:");
+        this.console.println("\tcalcWeight Test Case 5:");
         double guessLiters = 2;
         double pounds = 80;
         int expResult = -4;
@@ -70,7 +70,7 @@ public class sandWeightDoorControlTest {
     
     @Test
     public void testCalcWeight6() throws SandExceptions {
-        System.out.println("calcWeight Test Case 6:");
+        this.console.println("calcWeight Test Case 6:");
         double guessLiters = 0.46;
         double pounds = 1;
         int expResult = 1;
@@ -80,7 +80,7 @@ public class sandWeightDoorControlTest {
     
     @Test
     public void testCalcWeight7() throws SandExceptions {
-        System.out.println("calcWeight Test Case 7:");
+        this.console.println("calcWeight Test Case 7:");
         double guessLiters = 15;
         double pounds = 33;
         int expResult = 1;

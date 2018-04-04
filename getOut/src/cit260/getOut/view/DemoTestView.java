@@ -47,18 +47,18 @@ class DemoTestView extends View{
 
         boolean valid = false;
         while (valid == false) {
-            System.out.println("You notice written all over the walls the number, " + hint);
-            System.out.println("\nYou remember the note in your pocket and it reads,\n(X / 2 + 32)^24");
+            this.console.println("You notice written all over the walls the number, " + hint);
+            this.console.println("\nYou remember the note in your pocket and it reads,\n(X / 2 + 32)^24");
 
-            System.out.println(
+            this.console.println(
                     "        _ _ _ _\n\n"
                     + "|  1   |   2   |   3   |\n"
                     + "|  4   |   5   |   6   |\n"
                     + "|  7   |   8   |   9   |\n"
                     + "       |   0   |\n");
 
-            System.out.println("=======================================");
-            System.out.println("Enter code: ");
+            this.console.println("=======================================");
+            this.console.println("Enter code: ");
 
             String input;
             try {
@@ -66,11 +66,11 @@ class DemoTestView extends View{
                  String guessCode = input.trim();
             int guessLength = guessCode.length();
 
-            System.out.println("=======================================");
+            this.console.println("=======================================");
 
             if (guessLength < 4 || guessLength > 4) {
-                System.out.println("You must enter a correct 4 digit, non-blank value");
-                System.out.println("=======================================");
+                ErrorView.display(this.getClass().getName(),"You must enter a correct 4 digit, non-blank value" + 
+                        "\n=======================================");
                 continue;
             } else {
                 inputs[0] = guessCode;
@@ -78,7 +78,7 @@ class DemoTestView extends View{
                 valid = true;
             }
             } catch (IOException ex) {
-                System.out.println(ex.getMessage());
+                ErrorView.display(this.getClass().getName(),ex.getMessage());
             }
             
            
@@ -100,15 +100,15 @@ class DemoTestView extends View{
             try {
                 int endCalc = pinCodeDoorControl.calcCode(hint, guessCode);
             } catch (PinExceptions ex) {
-                System.out.println(ex.getMessage());
+                ErrorView.display(this.getClass().getName(),ex.getMessage());
             }
 
-            System.out.println("You entered the code correctly!\nThe lock clicks and the heavy door creaks open.");
+            this.console.println("You entered the code correctly!\nThe lock clicks and the heavy door creaks open.");
             complete = true;
             return complete;
             
         } catch (NumberFormatException nfe) {
-            System.out.println("Please enter a 4 digit number with no letters\n" + "=======================================");
+            ErrorView.display(this.getClass().getName(),"Please enter a 4 digit number with no letters\n" + "=======================================");
         }
         
         return complete;

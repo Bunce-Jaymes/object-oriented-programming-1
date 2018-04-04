@@ -39,24 +39,24 @@ public class ToolListView extends View {
         String input = null;
 
         for (String item : itemPrint) {
-            System.out.println(item);
+            this.console.println(item);
 
         }
-        System.out.println("E - Exit");
+        this.console.println("E - Exit");
 
         String[] inputs = new String[1];
-        System.out.println("=======================================");
+        this.console.println("=======================================");
 
         boolean valid = false;
         try {
             while (valid == false) {
-                System.out.println("Enter a key to see more information about a item: ");
+                this.console.println("Enter a key to see more information about a item: ");
                 input = this.keyboard.readLine();
                 String inputWithTrim = input.trim();
-                System.out.println("=======================================");
+                this.console.println("=======================================");
 
                 if (inputWithTrim.length() < 1) {
-                    System.out.println("You must enter a correct, non-blank value");
+                    ErrorView.display(this.getClass().getName(),"You must enter a correct, non-blank value");
                     continue;
                 } else {
                     inputs[0] = inputWithTrim;
@@ -64,7 +64,7 @@ public class ToolListView extends View {
                 }
             }
         } catch (IOException ex) {
-            System.out.println(ex.getMessage());
+            ErrorView.display(this.getClass().getName(),ex.getMessage());
         }
 
         return inputs;
@@ -95,34 +95,34 @@ public class ToolListView extends View {
                 return true;
 
             default:
-                System.out.println("Invalid menu item.");
+                ErrorView.display(this.getClass().getName(),"Invalid menu item.");
         }
         return false;
     }
 
     private void hammer() {
-        System.out.println(Item.Hammer.getDescription());
-        System.out.println("=======================================");
+        this.console.println(Item.Hammer.getDescription());
+        this.console.println("=======================================");
     }
 
     private void driftPin() {
-        System.out.println(Item.DriftPin.getDescription());
-        System.out.println("=======================================");
+        this.console.println(Item.DriftPin.getDescription());
+        this.console.println("=======================================");
     }
 
     private void paper() {
-        System.out.println(Item.Paper.getDescription());
-        System.out.println("=======================================");
+        this.console.println(Item.Paper.getDescription());
+        this.console.println("=======================================");
     }
 
     private void twoLiterBottle() {
-        System.out.println(Item.TwoLiterBottle.getDescription());
-        System.out.println("=======================================");
+        this.console.println(Item.TwoLiterBottle.getDescription());
+        this.console.println("=======================================");
     }
 
     private void sand() {
-        System.out.println(Item.Sand.getDescription());
-        System.out.println("=======================================");
+        this.console.println(Item.Sand.getDescription());
+        this.console.println("=======================================");
     }
 
 }

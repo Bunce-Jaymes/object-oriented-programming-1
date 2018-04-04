@@ -23,8 +23,18 @@ public class GetOut {
     
     private static Game currentGame = null;
     private static Player player = null;
-    
-      private static PrintWriter outFile = null;
+    private static PrintWriter logFile = null;
+    private static BufferedReader inFile = null;
+    private static PrintWriter outFile = null;
+
+    public static PrintWriter getLogFile() {
+        return logFile;
+    }
+
+    public static void setLogFile(PrintWriter logFile) {
+        GetOut.logFile = logFile;
+    }
+ 
 
     public static PrintWriter getOutFile() {
         return outFile;
@@ -34,7 +44,7 @@ public class GetOut {
         GetOut.outFile = outFile;
     }
 
-       private static BufferedReader inFile = null;
+       
 
     public static BufferedReader getInFile() {
         return inFile;
@@ -49,12 +59,13 @@ public class GetOut {
         try{
             GetOut.inFile = new BufferedReader(new InputStreamReader(System.in));
             GetOut.outFile = new PrintWriter(System.out, true);
+            GetOut.logFile = new PrintWriter("C:/GetOut/logFile.txt");
             
             StartProgramView startProgramView = new StartProgramView();
         startProgramView.display();
         }
         catch (Throwable e){
-            System.out.println("Main Class error");
+            GetOut.outFile.println("Main Class error");
         }
         
         finally{
@@ -66,6 +77,9 @@ public class GetOut {
                                
                 if(GetOut.outFile != null){
                     GetOut.outFile.close();
+                }
+                if (GetOut.logFile != null){
+                    logFile.close();
                 }
                 
             } catch (IOException ex) {

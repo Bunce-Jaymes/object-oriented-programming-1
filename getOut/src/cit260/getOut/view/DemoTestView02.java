@@ -9,13 +9,16 @@ package cit260.getOut.view;
 import cit260.geOut.exceptions.ForceExceptions;
 import cit260.getOut.control.forceLockDoorControl;
 import cit260.getOut.control.pinCodeDoorControl;
+import java.io.IOException;
 import java.util.Random;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
  */
-class DemoTestView02 {
+class DemoTestView02 extends View {
 
     void displayDemoTestView02() throws ForceExceptions {
 
@@ -32,36 +35,46 @@ class DemoTestView02 {
 
     }
 
-    private String[] getInputs() {
+    @Override
+    public String[] getInputs() {
 
         String[] inputs = new String[2];
+        String acceleration = null;
+        String mass = null;
 
         boolean valid = false;
         while (valid == false) {
 
-            System.out.println("This door is locked and you need to break the lock,");
-            System.out.println("\nYou need to configure the force by entering the mass of the hammer and speed of your swing ");
+            this.console.println("This door is locked and you need to break the lock,");
+            this.console.println("\nYou need to configure the force by entering the mass of the hammer and speed of your swing ");
 
-            System.out.println("=======================================");
-            System.out.println("Enter an how fast you are swinging the hammer in meters/second: ");
+            this.console.println("=======================================");
+            this.console.println("Enter an how fast you are swinging the hammer in meters/second: ");
             Scanner input;
-            input = new Scanner(System.in);
-            String acceleration = input.nextLine();
+            
+            try {
+                acceleration = this.keyboard.readLine();
+            } catch (IOException ex) {
+                ErrorView.display(this.getClass().getName(),ex.getMessage());
+            }
 
-        acceleration = acceleration.trim();
-            System.out.println("=======================================");
+            acceleration = acceleration.trim();
+            this.console.println("=======================================");
 
-            System.out.println("=======================================");
-            System.out.println("Enter how much mass the hammer has : ");
-            Scanner input2;
-            input2 = new Scanner(System.in);
-            String mass = input2.nextLine();
+            this.console.println("=======================================");
+            this.console.println("Enter how much mass the hammer has : ");
+            
+            try { 
+                mass = this.keyboard.readLine();
+            } catch (IOException ex) {
+                ErrorView.display(this.getClass().getName(),ex.getMessage());
+            }
             mass = mass.trim();
-            System.out.println("=======================================");
+            this.console.println("=======================================");
 
             if (mass.length() < 1 || acceleration.length() < 1) {
 
-                System.out.println("YOU suck");
+                ErrorView.display(this.getClass().getName(),"YOU suck");
                 continue;
 
             } else {
@@ -75,20 +88,25 @@ class DemoTestView02 {
         return inputs;
     }
 
-    private boolean doAction(String[] inputs) throws ForceExceptions {
+    @Override
+    public boolean doAction(String[] inputs) {
         boolean complete = false;
 
         try {
             
             double acceleration = Double.parseDouble(inputs[0]);
             double mass = Double.parseDouble(inputs[1]);
-            double calcForce = forceLockDoorControl.calcForce(mass, acceleration);
-            System.out.println("The door is unlocked");
+            try {
+                double calcForce = forceLockDoorControl.calcForce(mass, acceleration);
+            } catch (ForceExceptions ex) {
+                ErrorView.display(this.getClass().getName(),ex.getMessage());
+            }
+            this.console.println("The door is unlocked");
             complete = true;
             
         } catch (NumberFormatException nfe) {
-            System.out.println("Please enter a 4 digit number with no letters\n" + "=======================================");
-        }
+            ErrorView.display(this.getClass().getName(),"Please enter a 4 digit number with no letters\n" + "=======================================");
+        } 
         return complete;
     }
 }

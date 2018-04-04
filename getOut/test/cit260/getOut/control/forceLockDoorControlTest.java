@@ -22,7 +22,7 @@ public class forceLockDoorControlTest {
      */
     @Test
     public void testCalcForce() {
-        System.out.println("calcForce");
+        this.console.println("calcForce");
         double mass = 650.0;
         double acceleration = 1.0;
         double expResult = 650;
@@ -31,7 +31,7 @@ public class forceLockDoorControlTest {
     }
      @Test
     public void testCalcForceTwo() {
-        System.out.println("calcForceTwo");
+        this.console.println("calcForceTwo");
         double massTwo = 650.0;
         double acellerationTwo = 1.0;
         double expResult = 650.0;

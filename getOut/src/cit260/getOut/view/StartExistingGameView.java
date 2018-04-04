@@ -9,22 +9,12 @@ package cit260.getOut.view;
  *
  * @author jayme
  */
-public class StartExistingGameView {
-    public void displayStartExistingGameView(){
-        boolean endView = false;
-        do {
-            String[] inputs = getInputs();
-            String value = inputs[0].toUpperCase();
-            
-            if (value.equals('Q') || inputs.length < 1 ){
-                return;
-            }
-            endView = doAction(inputs);
-        } while (endView != true);
-    }
+public class StartExistingGameView extends View {
+    
 
-    private String[] getInputs() {
-       System.out.println("This displayStartExistingGameView getInputs works");
+    @Override
+    public String[] getInputs() {
+       this.console.println("This displayStartExistingGameView getInputs works");
         
         String[] inputs = new String[1];
         inputs[0] = "displayStartExistingGameView selected";
@@ -32,9 +22,10 @@ public class StartExistingGameView {
         return inputs;
     }
 
-    private boolean doAction(String[] inputs) {
-        System.out.println("This displayStartExistingGameView doaction works");
-        System.out.println("\tinputs = "+ inputs[0]);
+    @Override
+    public boolean doAction(String[] inputs) {
+        this.console.println("This displayStartExistingGameView doaction works");
+        this.console.println("\tinputs = "+ inputs[0]);
         
         return true;
     }

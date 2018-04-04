@@ -27,7 +27,7 @@ public class StartProgramView extends View {
     @Override
     public String[] getInputs() {
         String[] inputs = new String[1];
-        System.out.println("Welcome to GetOut the Game");
+        this.console.println("Welcome to GetOut the Game");
         String playerName = this.getInputs("\nPlease enter your name: ");
         inputs[0] = playerName;
         
@@ -42,18 +42,18 @@ public class StartProgramView extends View {
         try {
             player = GameControl.savePlayer(playerName);
         } catch (GameControlExceptions ex) {
-            System.out.println("Could not save player name");
+            ErrorView.display(this.getClass().getName(),"Could not save player name");
         }
         if (player == null) {
-            System.out.println("=======================================");
-            System.out.println("Could not create player. " + "Enter a different name.");
-            System.out.println("=======================================");
+            ErrorView.display(this.getClass().getName(),"=======================================");
+            ErrorView.display(this.getClass().getName(),"Could not create player. " + "Enter a different name.");
+            ErrorView.display(this.getClass().getName(),"=======================================");
             return false;
         }
 
-        System.out.println("=======================================");
-        System.out.println("Welcome to the game, " + playerName + "\nWe hope you have a lot of fun!");
-        System.out.println("=======================================");
+        this.console.println("=======================================");
+        this.console.println("Welcome to the game, " + playerName + "\nWe hope you have a lot of fun!");
+        this.console.println("=======================================");
 
         MainMenuView mainMenuView = new MainMenuView();
         mainMenuView.display();

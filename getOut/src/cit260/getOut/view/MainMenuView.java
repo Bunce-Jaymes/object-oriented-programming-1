@@ -48,7 +48,7 @@ public class MainMenuView extends View {
                 try {
                     startNewGame();
                 } catch (MapControlExceptions ex) {
-                    System.out.println("Error in swtich statement");
+                    ErrorView.display(this.getClass().getName(),"Error in swtich statement");
                 }
             }
             break;
@@ -62,9 +62,9 @@ public class MainMenuView extends View {
                 return true;
 
             default:
-                System.out.println("=======================================");
-                System.out.println("Invalid menu item.");
-                System.out.println("=======================================");
+                this.console.println("=======================================");
+                this.console.println("Invalid menu item.");
+                this.console.println("=======================================");
         }
         return false;
     }
@@ -80,7 +80,7 @@ public class MainMenuView extends View {
 
     private void restartGame() {
         StartExistingGameView startExistingGameView = new StartExistingGameView();
-        startExistingGameView.displayStartExistingGameView();
+        startExistingGameView.display();
     }
 
     private void getHelp() {

@@ -22,7 +22,7 @@ public class pinCodeDoorControlTest {
      */
     @Test
     public void testCalcCode() {
-        System.out.println("\tTest Case #1");
+        this.console.println("\tTest Case #1");
         int y = 48;
         int guessCode = 3136;
         int expResult = 1;
@@ -31,7 +31,7 @@ public class pinCodeDoorControlTest {
     }
     @Test
     public void testCalcCode2() {
-        System.out.println("\tTest Case #2");
+        this.console.println("\tTest Case #2");
         int y = 56;
         int guessCode = 4000;
         int expResult = -4;
@@ -40,7 +40,7 @@ public class pinCodeDoorControlTest {
     }
     @Test
     public void testCalcCode3() {
-        System.out.println("\tTest Case #3");
+        this.console.println("\tTest Case #3");
         int y = -6;
         int guessCode = 3600;
         int expResult = -1;
@@ -49,7 +49,7 @@ public class pinCodeDoorControlTest {
     }
     @Test
     public void testCalcCode4() {
-        System.out.println("\tTest Case #4");
+        this.console.println("\tTest Case #4");
         int y = 178;
         int guessCode = 3600;
         int expResult = -2;
@@ -58,7 +58,7 @@ public class pinCodeDoorControlTest {
     }
     @Test
     public void testCalcCode5() {
-        System.out.println("\tTest Case #5");
+        this.console.println("\tTest Case #5");
         int y = 5;
         int guessCode = 3600;
         int expResult = -4;
@@ -67,7 +67,7 @@ public class pinCodeDoorControlTest {
     }
     @Test
     public void testCalcCode6() {
-        System.out.println("\tTest Case #6");
+        this.console.println("\tTest Case #6");
         int y = 0;
         int guessCode = 1024;
         int expResult = 1;
@@ -76,7 +76,7 @@ public class pinCodeDoorControlTest {
     }
     @Test
     public void testCalcCode7() {
-        System.out.println("\tTest Case #7");
+        this.console.println("\tTest Case #7");
         int y = 134;
         int guessCode = 9801;
         int expResult = 1;

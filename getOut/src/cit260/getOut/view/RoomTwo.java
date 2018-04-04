@@ -43,13 +43,13 @@ public class RoomTwo extends View {
                 return true;
 
             default:
-                System.out.println("Invalid menu item.");
+                ErrorView.display(this.getClass().getName(),"Invalid menu item.");
         }
         return false;
     }
 
     private void inspectBookshelf() {
-        System.out.println("You have searched under the couch and under and inside the cushions.\n"
+        this.console.println("You have searched under the couch and under and inside the cushions.\n"
                 + "Inside one of the cushions you find what looks like a blue key, possibly crucial to your escape.\n"
                 + "You continue to search the couch but find nothing of note.\n"
                 + "**BLUE KEY is added to your INVENTORY**\n"
@@ -57,7 +57,7 @@ public class RoomTwo extends View {
     }
 
     private void inspectCouch() {
-        System.out.println("There are several books on the bookshelf and you begin to flip through them.\n"
+        this.console.println("There are several books on the bookshelf and you begin to flip through them.\n"
                 + "After a few books, you notice that a slip of paper falls out.\n"
                 + "Written on the paper is the equation “(10 / 2 + 41)^2”\n"
                 + "You continue to search the other books around the shelves themselves but find nothing of note.\n"

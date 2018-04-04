@@ -79,7 +79,7 @@ class GameMenuView extends View {
             try {
                 demoTestView();
             } catch (PinExceptions ex) {
-                System.out.println("Error in switch statement");
+                ErrorView.display(this.getClass().getName(),ex.getMessage());
             }
         }
                 break;
@@ -88,7 +88,7 @@ class GameMenuView extends View {
             try {
                 demoTestView02();
             } catch (ForceExceptions ex) {
-                System.out.println(ex.getMessage());
+                ErrorView.display(this.getClass().getName(),ex.getMessage());
             }
         }
                 break;
@@ -99,7 +99,7 @@ class GameMenuView extends View {
                 doorNum3();
                 break;
             default:
-                System.out.println("Invalid menu item.");
+                ErrorView.display(this.getClass().getName(),"Invalid menu item.");
         }
         return false;
     }
@@ -108,85 +108,85 @@ class GameMenuView extends View {
         Game game = GetOut.getCurrentGame();
 
         Location[][] location = GetOut.getCurrentGame().getMap().getLocations();
-        System.out.println("Get Out Map");
-        System.out.println("     0     1     2     3     4     5     6     7     8     9");
+        this.console.println("Get Out Map");
+        this.console.println("     0     1     2     3     4     5     6     7     8     9");
 
         for (int i = 0; i < location.length; i++) {
             int num = i + 1 - 1;
-            System.out.print("----------------------------------------------------------------\n" + num);
+            this.console.print("----------------------------------------------------------------\n" + num);
 
             for (int c = 0; c < location[0].length; c++) {
-                System.out.print(" | ");
+                this.console.print(" | ");
 
                 Location loc = location[i][c];
                 if (loc.isVisited()) {
                     String symbol = loc.getScene().getSymbol();
-                    System.out.print(symbol);
+                    this.console.print(symbol);
                 } else {
-                    System.out.print("???");
+                    this.console.print("???");
                 }
             }
-            System.out.print(" |\n");
+            this.console.print(" |\n");
         }
-          System.out.print("----------------------------------------------------------------\n");
-          System.out.println("You are currently located at: " + GetOut.getCurrentGame().getActor().getX() +"," + GetOut.getCurrentGame().getActor().getY());
-          System.out.println();
+          this.console.print("----------------------------------------------------------------\n");
+          this.console.println("You are currently located at: " + GetOut.getCurrentGame().getActor().getX() +"," + GetOut.getCurrentGame().getActor().getY());
+          this.console.println();
     }
 
     private void movePlayer() {
         MoveActorView moveActorView = new MoveActorView();
         moveActorView.display();
-        System.out.println("=======================================");
+        this.console.println("=======================================");
     }
 
     private void viewInventory() {
-        System.out.println("***viewInventory Called***");
-        System.out.println("=======================================");
+        this.console.println("***viewInventory Called***");
+        this.console.println("=======================================");
     }
 
     private void viewToolList() {
         ToolListView toolListView = new ToolListView();
         toolListView.displayoolListView();
-        System.out.println("=======================================");
+        this.console.println("=======================================");
     }
 
     private void exploreLocation() {
-        System.out.println("***exploreLocation Called***");
-        System.out.println("=======================================");
+        this.console.println("***exploreLocation Called***");
+        this.console.println("=======================================");
     }
 
     private void saveGame() {
-        System.out.println("***saveGame Called***");
-        System.out.println("=======================================");
+        this.console.println("***saveGame Called***");
+        this.console.println("=======================================");
     }
 
     private void helpMenu() {
         helpMenuView helpMenuView = new helpMenuView();
         helpMenuView.display();
-        System.out.println("=======================================");
+        this.console.println("=======================================");
     }
 
     private void demoTestView() throws PinExceptions {
         DemoTestView demoTestView = new DemoTestView();
         demoTestView.displayDemoTestView();
-        System.out.println("=======================================");
+        this.console.println("=======================================");
     }
 
     private void demoTestView02() throws ForceExceptions {
         DemoTestView02 demoTestView2 = new DemoTestView02();
         demoTestView2.displayDemoTestView02();
-        System.out.println("=======================================");
+        this.console.println("=======================================");
     }
 
     private void doorNum3() {
         DemoDoorNum3 demodoorNum3 = new DemoDoorNum3();
         demodoorNum3.display();
-        System.out.println("=======================================");
+        this.console.println("=======================================");
     }
 
     private void roomTwoView() {
         RoomTwo roomTwoView = new RoomTwo();
         roomTwoView.display();
-        System.out.println("=======================================");
+        this.console.println("=======================================");
     }
 }
