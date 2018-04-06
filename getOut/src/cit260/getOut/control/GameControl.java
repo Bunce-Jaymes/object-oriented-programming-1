@@ -5,13 +5,23 @@
  */
 package cit260.getOut.control;
 
-import cit260.geOut.exceptions.GameControlExceptions;
-import cit260.geOut.exceptions.MapControlExceptions;
+import cit260.getOut.exceptions.GameControlExceptions;
+import cit260.getOut.exceptions.MapControlExceptions;
 import cit260.getOut.model.Actor;
 import cit260.getOut.model.Game;
 import cit260.getOut.model.Map;
 import cit260.getOut.model.Player;
+import cit260.getOut.view.ErrorView;
 import getout.GetOut;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.PrintWriter;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -40,24 +50,50 @@ public class GameControl {
         game.setActor(Actor.Victim);
         int noOfRows = 10;
         int noOfColumns = 10;
-        
+
         Map map = MapControl.createMap(noOfRows, noOfColumns);
-            if (map == null) {
-                throw new MapControlExceptions("Map creatation failure");
-            }
-            game.setMap(map);
-        
+        if (map == null) {
+            throw new MapControlExceptions("Map creatation failure");
+        }
+        game.setMap(map);
+
         return 1;
     }
-    
-    
 
+    public static void saveGame(Game game, String filePath) throws GameControlExceptions, IOException {
 
+        if (game == null || filePath == null) {
+            throw new GameControlExceptions("Game and Path cannot be null");
+        }
+        
+         PrintWriter saveFile;
+        GetOut.setSaveFile(saveFile);
+        try(FileOutputStream out = new FileOutputStream(filePath)){;
+            try (ObjectOutputStream outObject = new ObjectOutputStream(out)) {
+               outObject.writeObject(game);
+            }
+        } catch (IOException ex) {
+            System.out.println("I/O Error: " + ex.getMessage());
+        }
+    }
 
+    public static void getGame(String filePath) throws GameControlExceptions, IOException {
+        Game game = null;
+        
+        if (filePath == null) {
+            throw new GameControlExceptions("File path cannot be null");
+        }
+        try (FileInputStream in = new FileInputStream(filePath)) {
+            try (ObjectInputStream inObject = new ObjectInputStream(in)) {
+                game = (Game) inObject.readObject();
+                GetOut.setCurrentGame(game);
+                GetOut.setPlayer(game.getPlayer());
 
-
-  
-    
-    
-    
+            } catch (ClassNotFoundException ex) {
+                System.out.println(ex.getMessage());
+            }
+        } catch (IOException ex) {
+            System.out.println("I/O Error: " + ex.getMessage());
+        }
+    }
 }

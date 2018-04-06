@@ -5,14 +5,10 @@
  */
 package cit260.getOut.view;
 
-import cit260.geOut.exceptions.MapControlExceptions;
+import cit260.getOut.exceptions.MapControlExceptions;
 import cit260.getOut.control.GameControl;
 import cit260.getOut.model.*;
-import cit260.getOut.view.*;
 import getout.GetOut;
-import java.util.Scanner;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -53,7 +49,7 @@ public class MainMenuView extends View {
             }
             break;
             case "R":
-                restartGame();
+                loadGame();
                 break;
             case "H":
                 getHelp();
@@ -78,7 +74,7 @@ public class MainMenuView extends View {
         gameMenuView.display();
     }
 
-    private void restartGame() {
+    private void loadGame() {
         StartExistingGameView startExistingGameView = new StartExistingGameView();
         startExistingGameView.display();
     }

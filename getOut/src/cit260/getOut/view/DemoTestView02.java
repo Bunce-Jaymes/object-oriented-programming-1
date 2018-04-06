@@ -6,7 +6,7 @@
  */
 package cit260.getOut.view;
 
-import cit260.geOut.exceptions.ForceExceptions;
+import cit260.getOut.exceptions.ForceExceptions;
 import cit260.getOut.control.forceLockDoorControl;
 import cit260.getOut.control.pinCodeDoorControl;
 import java.io.IOException;

@@ -19,13 +19,21 @@ import java.util.logging.Logger;
  * @author jayme
  */
 public class GetOut {
-    
-    
+
     private static Game currentGame = null;
     private static Player player = null;
     private static PrintWriter logFile = null;
     private static BufferedReader inFile = null;
     private static PrintWriter outFile = null;
+    private static PrintWriter saveFile = null;
+
+    public static PrintWriter getSaveFile() {
+        return saveFile;
+    }
+
+    public static void setSaveFile(PrintWriter saveFile) {
+        GetOut.saveFile = saveFile;
+    }
 
     public static PrintWriter getLogFile() {
         return logFile;
@@ -34,7 +42,6 @@ public class GetOut {
     public static void setLogFile(PrintWriter logFile) {
         GetOut.logFile = logFile;
     }
- 
 
     public static PrintWriter getOutFile() {
         return outFile;
@@ -44,8 +51,6 @@ public class GetOut {
         GetOut.outFile = outFile;
     }
 
-       
-
     public static BufferedReader getInFile() {
         return inFile;
     }
@@ -53,42 +58,41 @@ public class GetOut {
     public static void setInFile(BufferedReader inFile) {
         GetOut.inFile = inFile;
     }
-    
 
     public static void main(String[] args) {
-        try{
-            GetOut.inFile = new BufferedReader(new InputStreamReader(System.in));
-            GetOut.outFile = new PrintWriter(System.out, true);
-            GetOut.logFile = new PrintWriter("C:/GetOut/logFile.txt");
-            
+        try {
+            inFile = new BufferedReader(new InputStreamReader(System.in));
+            outFile = new PrintWriter(System.out, true);
+            logFile = new PrintWriter("logFile.txt");
+//            saveFile = new PrintWriter("saveFile.txt");
+
             StartProgramView startProgramView = new StartProgramView();
-        startProgramView.display();
-        }
-        catch (Throwable e){
-            GetOut.outFile.println("Main Class error");
-        }
-        
-        finally{
-            
+            startProgramView.display();
+        } catch (Throwable e) {
+            GetOut.outFile.println(e.getMessage());
+        } finally {
+
             try {
-                if(GetOut.inFile != null){
-               GetOut.inFile.close();
+                if (GetOut.inFile != null) {
+                    GetOut.inFile.close();
                 }
-                               
-                if(GetOut.outFile != null){
+
+                if (GetOut.outFile != null) {
                     GetOut.outFile.close();
                 }
-                if (GetOut.logFile != null){
+                if (GetOut.logFile != null) {
                     logFile.close();
                 }
-                
+                if (GetOut.saveFile != null) {
+                    saveFile.close();
+                }
+
             } catch (IOException ex) {
                 Logger.getLogger(GetOut.class.getName()).log(Level.SEVERE, null, ex);
             }
-             
+
         }
-        
-        
+
     }
 
     public static Game getCurrentGame() {
@@ -106,4 +110,4 @@ public class GetOut {
     public static void setPlayer(Player player) {
         GetOut.player = player;
     }
-    }
+}

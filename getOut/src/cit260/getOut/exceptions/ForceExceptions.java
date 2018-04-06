@@ -1,34 +1,34 @@
+package cit260.getOut.exceptions;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package cit260.geOut.exceptions;
 
 /**
  *
  * @author jayme
  */
-public class ActorExceptions extends Exception {
+public class ForceExceptions extends Exception{
 
-    public ActorExceptions() {
+    public ForceExceptions() {
     }
 
-    public ActorExceptions(String string) {
+    public ForceExceptions(String string) {
         super(string);
     }
 
-    public ActorExceptions(String string, Throwable thrwbl) {
+    public ForceExceptions(String string, Throwable thrwbl) {
         super(string, thrwbl);
     }
 
-    public ActorExceptions(Throwable thrwbl) {
+    public ForceExceptions(Throwable thrwbl) {
         super(thrwbl);
     }
 
-    public ActorExceptions(String string, Throwable thrwbl, boolean bln, boolean bln1) {
+    public ForceExceptions(String string, Throwable thrwbl, boolean bln, boolean bln1) {
         super(string, thrwbl, bln, bln1);
     }
-    
     
 }

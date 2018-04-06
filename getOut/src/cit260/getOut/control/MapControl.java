@@ -5,7 +5,7 @@
  */
 package cit260.getOut.control;
 
-import cit260.geOut.exceptions.MapControlExceptions;
+import cit260.getOut.exceptions.MapControlExceptions;
 import cit260.getOut.model.Actor;
 import cit260.getOut.model.WallScene;
 import cit260.getOut.model.BlankScene;

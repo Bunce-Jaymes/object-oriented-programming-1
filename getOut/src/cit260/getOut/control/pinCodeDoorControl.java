@@ -1,6 +1,6 @@
 package cit260.getOut.control;
 
-import cit260.geOut.exceptions.PinExceptions;
+import cit260.getOut.exceptions.PinExceptions;
 
 /**
  *

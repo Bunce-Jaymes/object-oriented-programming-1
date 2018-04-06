@@ -5,8 +5,8 @@
  */
 package cit260.getOut.view;
 
-import cit260.geOut.exceptions.ActorExceptions;
-import cit260.geOut.exceptions.MapControlExceptions;
+import cit260.getOut.exceptions.ActorExceptions;
+import cit260.getOut.exceptions.MapControlExceptions;
 import cit260.getOut.model.Actor;
 import java.lang.String;
 import cit260.getOut.control.MapControl;
@@ -32,11 +32,6 @@ public class MoveActorView extends View {
                 + "Enter a key:");
 
         inputs[0] = mainInput;
-
-//        String mainInput2 = this.getInputs("How many spaces would you like to move?\n"
-//                + "=======================================\n"
-//                + "Enter a number:");
-//        inputs[1] = mainInput2;
         return inputs;
 
     }
@@ -46,7 +41,6 @@ public class MoveActorView extends View {
         boolean complete = false;
 
         String direction = inputs[0];
-//        int steps = 0;
         Game game = GetOut.getCurrentGame();
         Actor Raphael = game.getActor();
 

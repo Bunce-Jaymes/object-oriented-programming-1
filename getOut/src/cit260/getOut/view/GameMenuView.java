@@ -5,8 +5,8 @@
  */
 package cit260.getOut.view;
 
-import cit260.geOut.exceptions.ForceExceptions;
-import cit260.geOut.exceptions.PinExceptions;
+import cit260.getOut.exceptions.ForceExceptions;
+import cit260.getOut.exceptions.PinExceptions;
 import cit260.getOut.model.Game;
 import cit260.getOut.model.Location;
 import cit260.getOut.model.Map;
@@ -156,7 +156,8 @@ class GameMenuView extends View {
     }
 
     private void saveGame() {
-        this.console.println("***saveGame Called***");
+        SaveGameView saveGameView = new SaveGameView();
+        saveGameView.display();
         this.console.println("=======================================");
     }
 

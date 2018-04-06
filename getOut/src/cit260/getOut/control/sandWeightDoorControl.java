@@ -5,7 +5,7 @@
  */
 package cit260.getOut.control;
 
-import cit260.geOut.exceptions.SandExceptions;
+import cit260.getOut.exceptions.SandExceptions;
 
 /**
  *

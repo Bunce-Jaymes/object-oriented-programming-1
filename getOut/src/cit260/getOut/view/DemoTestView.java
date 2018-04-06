@@ -6,13 +6,10 @@
  */
 package cit260.getOut.view;
 
-import cit260.geOut.exceptions.PinExceptions;
+import cit260.getOut.exceptions.PinExceptions;
 import cit260.getOut.control.pinCodeDoorControl;
 import java.io.IOException;
 import java.util.Random;
-import java.util.Scanner;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -79,9 +76,7 @@ class DemoTestView extends View{
             }
             } catch (IOException ex) {
                 ErrorView.display(this.getClass().getName(),ex.getMessage());
-            }
-            
-           
+            } 
         }
         return inputs;
     }

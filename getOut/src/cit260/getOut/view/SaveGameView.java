@@ -7,42 +7,43 @@ package cit260.getOut.view;
 
 import cit260.getOut.exceptions.GameControlExceptions;
 import cit260.getOut.control.GameControl;
+import cit260.getOut.model.Game;
+import getout.GetOut;
 import java.io.IOException;
 
 /**
  *
  * @author jayme
  */
-public class StartExistingGameView extends View {
-    
+public class SaveGameView extends View {
 
     @Override
     public String[] getInputs() {
         String[] inputs = new String[1];
-        String mainInput = this.getInputs("Type the path of the game save that you would like to open"
-                + "\nExample: C:/GameSave1"
+        String mainInput = this.getInputs("Type the path, where you would like to save the game\n"
+                + "Example: C:/Users/tmp"
                 + "\n or Q - To go back"
-                + "\n=======================================\n");
-        mainInput = inputs[0];
-        
+                + "\n=======================================\n"
+                + "Enter a key: ");
+
+        inputs[0] = mainInput;
         return inputs;
     }
 
     @Override
     public boolean doAction(String[] inputs) {
+//        boolean check = false;
         String filePath = inputs[0];
+        Game game = GetOut.getCurrentGame();
         try {
-            GameControl.getGame(filePath);
-        } catch (GameControlExceptions gce) {
+            GameControl.saveGame(game,filePath);    
+        } catch (GameControlExceptions | IOException gce) {
             ErrorView.display(this.getClass().getName(), gce.getMessage());
             return false;
-        } catch (IOException ex) {
-            ErrorView.display(this.getClass().getName(), ex.getMessage());
-            return false;
         }
-        GameMenuView gameMenuView = new GameMenuView();
-        gameMenuView.display();
-   
+         this.console.println("File was succesfully saved to: " + filePath); 
+         
         return true;
     }
+
 }

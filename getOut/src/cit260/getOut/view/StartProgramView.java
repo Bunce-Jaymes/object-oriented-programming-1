@@ -5,7 +5,7 @@
  */
 package cit260.getOut.view;
 
-import cit260.geOut.exceptions.GameControlExceptions;
+import cit260.getOut.exceptions.GameControlExceptions;
 import cit260.getOut.control.GameControl;
 import static cit260.getOut.control.GameControl.savePlayer;
 import cit260.getOut.view.MainMenuView;
