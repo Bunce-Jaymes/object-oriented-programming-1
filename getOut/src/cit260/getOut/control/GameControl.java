@@ -65,9 +65,7 @@ public class GameControl {
         if (game == null || filePath == null) {
             throw new GameControlExceptions("Game and Path cannot be null");
         }
-        
-         PrintWriter saveFile;
-        GetOut.setSaveFile(saveFile);
+
         try(FileOutputStream out = new FileOutputStream(filePath)){;
             try (ObjectOutputStream outObject = new ObjectOutputStream(out)) {
                outObject.writeObject(game);
@@ -90,7 +88,7 @@ public class GameControl {
                 GetOut.setPlayer(game.getPlayer());
 
             } catch (ClassNotFoundException ex) {
-                System.out.println(ex.getMessage());
+                System.out.println("could not load game");
             }
         } catch (IOException ex) {
             System.out.println("I/O Error: " + ex.getMessage());

@@ -20,10 +20,11 @@ public class StartExistingGameView extends View {
     public String[] getInputs() {
         String[] inputs = new String[1];
         String mainInput = this.getInputs("Type the path of the game save that you would like to open"
-                + "\nExample: C:/GameSave1"
+                + "\nExample: C:/GameSave1.dat"
                 + "\n or Q - To go back"
-                + "\n=======================================\n");
-        mainInput = inputs[0];
+                + "\n=======================================\n"
+                + "Enter the full file path for you save: ");
+        inputs[0] = mainInput;
         
         return inputs;
     }
