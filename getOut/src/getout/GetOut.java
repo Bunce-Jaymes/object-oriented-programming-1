@@ -25,15 +25,6 @@ public class GetOut {
     private static PrintWriter logFile = null;
     private static BufferedReader inFile = null;
     private static PrintWriter outFile = null;
-    private static PrintWriter saveFile = null;
-
-    public static PrintWriter getSaveFile() {
-        return saveFile;
-    }
-
-    public static void setSaveFile(PrintWriter saveFile) {
-        GetOut.saveFile = saveFile;
-    }
 
     public static PrintWriter getLogFile() {
         return logFile;
@@ -64,8 +55,7 @@ public class GetOut {
             inFile = new BufferedReader(new InputStreamReader(System.in));
             outFile = new PrintWriter(System.out, true);
             logFile = new PrintWriter("logFile.txt");
-//            saveFile = new PrintWriter("saveFile.txt");
-
+            
             StartProgramView startProgramView = new StartProgramView();
             startProgramView.display();
         } catch (Throwable e) {
@@ -82,9 +72,6 @@ public class GetOut {
                 }
                 if (GetOut.logFile != null) {
                     logFile.close();
-                }
-                if (GetOut.saveFile != null) {
-                    saveFile.close();
                 }
 
             } catch (IOException ex) {

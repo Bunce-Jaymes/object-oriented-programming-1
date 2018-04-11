@@ -9,11 +9,7 @@ import cit260.getOut.exceptions.ForceExceptions;
 import cit260.getOut.exceptions.PinExceptions;
 import cit260.getOut.model.Game;
 import cit260.getOut.model.Location;
-import cit260.getOut.model.Map;
 import getout.GetOut;
-import java.util.Scanner;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -74,24 +70,22 @@ class GameMenuView extends View {
                 break;
             case "X":
                 return true;
-            case "D":
-        {
-            try {
-                demoTestView();
-            } catch (PinExceptions ex) {
-                ErrorView.display(this.getClass().getName(),ex.getMessage());
+            case "D": {
+                try {
+                    demoTestView();
+                } catch (PinExceptions ex) {
+                    ErrorView.display(this.getClass().getName(), ex.getMessage());
+                }
             }
-        }
-                break;
-            case "F":
-        {
-            try {
-                demoTestView02();
-            } catch (ForceExceptions ex) {
-                ErrorView.display(this.getClass().getName(),ex.getMessage());
+            break;
+            case "F": {
+                try {
+                    demoTestView02();
+                } catch (ForceExceptions ex) {
+                    ErrorView.display(this.getClass().getName(), ex.getMessage());
+                }
             }
-        }
-                break;
+            break;
             case "A":
                 roomTwoView();
                 break;
@@ -99,7 +93,7 @@ class GameMenuView extends View {
                 doorNum3();
                 break;
             default:
-                ErrorView.display(this.getClass().getName(),"Invalid menu item.");
+                ErrorView.display(this.getClass().getName(), "Invalid menu item.");
         }
         return false;
     }
@@ -128,9 +122,9 @@ class GameMenuView extends View {
             }
             this.console.print(" |\n");
         }
-          this.console.print("----------------------------------------------------------------\n");
-          this.console.println("You are currently located at: " + GetOut.getCurrentGame().getActor().getX() +"," + GetOut.getCurrentGame().getActor().getY());
-          this.console.println();
+        this.console.print("----------------------------------------------------------------\n");
+        this.console.println("You are currently located at: " + GetOut.getCurrentGame().getActor().getX() + "," + GetOut.getCurrentGame().getActor().getY());
+        this.console.println();
     }
 
     private void movePlayer() {

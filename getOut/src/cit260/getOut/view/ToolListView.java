@@ -8,10 +8,6 @@ package cit260.getOut.view;
 import static cit260.getOut.control.ItemSort.sortList;
 import cit260.getOut.model.Item;
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.Scanner;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -42,6 +38,7 @@ public class ToolListView extends View {
             this.console.println(item);
 
         }
+        this.console.println("R - To print the tool list report");
         this.console.println("E - Exit");
 
         String[] inputs = new String[1];
@@ -91,6 +88,9 @@ public class ToolListView extends View {
             case "S":
                 sand();
                 break;
+            case "R":
+                printToolReport();
+                break;
             case "E":
                 return true;
 
@@ -124,5 +124,10 @@ public class ToolListView extends View {
         this.console.println(Item.Sand.getDescription());
         this.console.println("=======================================");
     }
-
+    
+    private void printToolReport() {
+        FilePrintItemsView filePrintItemsView = new FilePrintItemsView();
+        filePrintItemsView.display();
+        this.console.println("=======================================");
+    }
 }

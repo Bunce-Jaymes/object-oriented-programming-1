@@ -32,7 +32,6 @@ public class SaveGameView extends View {
 
     @Override
     public boolean doAction(String[] inputs) {
-//        boolean check = false;
         String filePath = inputs[0];
         Game game = GetOut.getCurrentGame();
         try {
