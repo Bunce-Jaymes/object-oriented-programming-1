@@ -8,17 +8,17 @@ package cit260.getOut.view;
 
 import cit260.getOut.exceptions.ForceExceptions;
 import cit260.getOut.control.forceLockDoorControl;
-import cit260.getOut.control.pinCodeDoorControl;
+import cit260.getOut.model.Game;
+import cit260.getOut.model.Location;
+import cit260.getOut.model.Map;
+import getout.GetOut;
 import java.io.IOException;
-import java.util.Random;
 import java.util.Scanner;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
  */
-class DemoTestView02 extends View {
+public class DoorNumber4View extends View {
 
     void displayDemoTestView02() throws ForceExceptions {
 
@@ -46,8 +46,8 @@ class DemoTestView02 extends View {
         while (valid == false) {
 
             this.console.println("This door is locked and you need to break the lock,");
-            this.console.println("\nYou need to configure the force by entering the mass of the hammer and speed of your swing ");
-
+            this.console.print("\nYou need to configure the force by entering the mass of the hammer and speed of your swing"
+                    + "\n or Q - Quit");
             this.console.println("=======================================");
             this.console.println("Enter an how fast you are swinging the hammer in meters/second: ");
             Scanner input;

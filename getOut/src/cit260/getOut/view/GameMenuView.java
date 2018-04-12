@@ -31,10 +31,6 @@ class GameMenuView extends View {
                 + "S - Save game\n"
                 + "H - Help\n"
                 + "X - Exit game menu\n"
-                + "D - To demo pinCodeDoorControl View\n"
-                + "F - To demo forceLockDoorControl View\n"
-                + "A - To demo roomTwo View\n"
-                + "Z - To demo DoorNum3\n"
                 + "=======================================\n"
                 + "Enter a key:");
         inputs[0] = mainInput;
@@ -70,28 +66,6 @@ class GameMenuView extends View {
                 break;
             case "X":
                 return true;
-            case "D": {
-                try {
-                    demoTestView();
-                } catch (PinExceptions ex) {
-                    ErrorView.display(this.getClass().getName(), ex.getMessage());
-                }
-            }
-            break;
-            case "F": {
-                try {
-                    demoTestView02();
-                } catch (ForceExceptions ex) {
-                    ErrorView.display(this.getClass().getName(), ex.getMessage());
-                }
-            }
-            break;
-            case "A":
-                roomTwoView();
-                break;
-            case "Z":
-                doorNum3();
-                break;
             default:
                 ErrorView.display(this.getClass().getName(), "Invalid menu item.");
         }
@@ -161,30 +135,6 @@ class GameMenuView extends View {
     private void helpMenu() {
         helpMenuView helpMenuView = new helpMenuView();
         helpMenuView.display();
-        this.console.println("=======================================");
-    }
-
-    private void demoTestView() throws PinExceptions {
-        DemoTestView demoTestView = new DemoTestView();
-        demoTestView.displayDemoTestView();
-        this.console.println("=======================================");
-    }
-
-    private void demoTestView02() throws ForceExceptions {
-        DemoTestView02 demoTestView2 = new DemoTestView02();
-        demoTestView2.displayDemoTestView02();
-        this.console.println("=======================================");
-    }
-
-    private void doorNum3() {
-        DemoDoorNum3 demodoorNum3 = new DemoDoorNum3();
-        demodoorNum3.display();
-        this.console.println("=======================================");
-    }
-
-    private void roomTwoView() {
-        RoomTwo roomTwoView = new RoomTwo();
-        roomTwoView.display();
         this.console.println("=======================================");
     }
 }

@@ -5,15 +5,12 @@
  */
 package cit260.getOut.view;
 
-import cit260.getOut.exceptions.ActorExceptions;
 import cit260.getOut.exceptions.MapControlExceptions;
 import cit260.getOut.model.Actor;
 import java.lang.String;
 import cit260.getOut.control.MapControl;
 import cit260.getOut.model.Game;
 import getout.GetOut;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *

@@ -18,11 +18,14 @@ import cit260.getOut.model.QuestionScene;
 import cit260.getOut.model.RegularSceneType;
 import cit260.getOut.model.SceneType;
 import cit260.getOut.model.StartScene;
-import cit260.getOut.model.QuestionType;
+import cit260.getOut.view.DoorNumber1View;
+import cit260.getOut.view.DoorNumber2View;
+import cit260.getOut.view.DoorNumber3View;
+import cit260.getOut.view.DoorNumber4View;
+import cit260.getOut.view.FinalDoorView;
+import cit260.getOut.view.FinalSceneView;
 import getout.GetOut;
-import java.awt.Point;
 import java.util.ArrayList;
-import javafx.scene.Scene;
 
 /**
  *
@@ -47,7 +50,7 @@ public class MapControl {
 
         assignQuestionsToScenes(questions, scenes);
         assignScenesToLocation(scenes, locations);
-       
+
         return map;
     }
 
@@ -73,7 +76,7 @@ public class MapControl {
         QuestionScene question = new QuestionScene();
         question.setDescription("");
         question.setBlocked("Yes");
-        question.setSymbol("X");
+        question.setSymbol(" X ");
 
         scenes[SceneType.question.ordinal()] = question;
 
@@ -293,6 +296,12 @@ public class MapControl {
         locations[9][9].setScene(scenes[SceneType.wall.ordinal()]);
         locations[9][9].setVisited(true);
 
+        locations[1][2].getScene().setDoor(1);
+        locations[3][2].getScene().setDoor(2);
+        locations[4][8].getScene().setDoor(3);
+        locations[6][4].getScene().setDoor(4);
+        locations[7][1].getScene().setDoor(5);
+
     }
 
     public static void moveActor(Actor actor, String direction) throws MapControlExceptions {
@@ -302,87 +311,176 @@ public class MapControl {
         int setRow = 0;
         boolean columnChange = false;
         boolean rowChange = false;
-        
+
         if (actor == null) {
             throw new MapControlExceptions("Actor has no value");
         }
         Game game = GetOut.getCurrentGame();
         Map map = game.getMap();
         Location[][] locations = map.getLocations();
-        
+
         int currentRow = actor.getX();
         int currentColumn = actor.getY();
-        
-        if ("U".equals(direction)){
+
+        if ("U".equals(direction)) {
             checkRow = currentRow - 1;
-            if (checkRow > 9){
+            if (checkRow > 9) {
                 throw new MapControlExceptions("The row that you are wishing to move to is greater than the map size");
             }
-            if (checkRow < 0){
+            if (checkRow < 0) {
                 throw new MapControlExceptions("The row that you are wishing to move to is less than the map size");
             }
             setRow = checkRow;
             rowChange = true;
         }
-        if ("D".equals(direction)){
+        if ("D".equals(direction)) {
             checkRow = currentRow + 1;
-            if (checkRow > 9){
+            if (checkRow > 9) {
                 throw new MapControlExceptions("The row that you are wishing to move to is greater than the map size");
             }
-            if (checkRow < 0){
+            if (checkRow < 0) {
                 throw new MapControlExceptions("The row that you are wishing to move to is less than the map size");
             }
             setRow = checkRow;
             rowChange = true;
         }
-        if ("L".equals(direction)){
+        if ("L".equals(direction)) {
             checkColumn = currentColumn - 1;
-            if (checkColumn > 9){
+            if (checkColumn > 9) {
                 throw new MapControlExceptions("The row that you are wishing to move to is greater than the map size");
             }
-            if (checkColumn < 0){
+            if (checkColumn < 0) {
                 throw new MapControlExceptions("The row that you are wishing to move to is less than the map size");
             }
             setColumn = checkColumn;
             columnChange = true;
         }
-        if ("R".equals(direction)){
+        if ("R".equals(direction)) {
             checkColumn = currentColumn + 1;
-            if (checkColumn > 9){
+            if (checkColumn > 9) {
                 throw new MapControlExceptions("The row that you are wishing to move to is greater than the map size");
             }
-            if (checkColumn < 0){
+            if (checkColumn < 0) {
                 throw new MapControlExceptions("The row that you are wishing to move to is less than the map size");
             }
             setColumn = checkColumn;
             columnChange = true;
         }
-        
-        if (columnChange == true){
+
+        if (columnChange == true) {
             Location checkScene = locations[currentRow][setColumn];
-            String sceneType = checkScene.getScene().getBlocked();
-            if (sceneType == "Yes"){
+            String sceneBlocked = checkScene.getScene().getBlocked();
+            System.out.println(checkScene);
+
+            if ("Yes".equals(sceneBlocked)) {
                 checkScene.setVisited(true);
-                throw new MapControlExceptions("Can not move to that position, it is blocked");
-            }else{
+
+                //Door Checks
+                if (checkScene == locations[1][2]) {
+                    DoorNumber1View doorNumber1View = new DoorNumber1View();
+                    doorNumber1View.display();
+
+                    locations[1][2].setVisited(true);
+                    locations[1][3].setActor(actor);
+                    locations[1][3].setVisited(true);
+                    actor.setX(currentRow);
+                    actor.setY(setColumn + 1);
+                } else if (checkScene == locations[3][5]) {
+                    //Sand Weight
+                    DoorNumber2View doorNumber2View = new DoorNumber2View();
+                    doorNumber2View.display();
+
+                    locations[3][5].setVisited(true);
+                    locations[3][6].setActor(actor);
+                    locations[3][6].setVisited(true);
+                    actor.setX(currentRow);
+                    actor.setY(setColumn + 1);
+                } else if (checkScene == locations[6][4]) {
+                    //Hammer Door
+                    DoorNumber4View doorNumber4View = new DoorNumber4View();
+                    doorNumber4View.display();
+
+                    locations[6][4].setVisited(true);
+                    locations[6][3].setActor(actor);
+                    locations[6][3].setVisited(true);
+                    actor.setX(currentRow);
+                    actor.setY(setColumn + 1);
+                } //Item Checks
+                else if (checkScene == locations[3][1]) {
+
+                } else if (checkScene == locations[2][4]) {
+
+                } else if (checkScene == locations[1][8]) {
+
+                } else if (checkScene == locations[7][8]) {
+
+                } else if (checkScene == locations[8][5]) {
+
+                }
+            } else {
                 checkScene.setVisited(true);
                 checkScene.setActor(actor);
                 actor.setX(currentRow);
                 actor.setY(setColumn);
             }
         }
-        if (rowChange == true){
+        if (rowChange == true) {
             Location checkScene = locations[setRow][currentColumn];
             String sceneType = checkScene.getScene().getBlocked();
-            if (sceneType == "Yes"){
+            double door = checkScene.getScene().getDoor();
+            double room = checkScene.getScene().getRoom();
+
+            if ("Yes".equals(sceneType)) {
                 checkScene.setVisited(true);
-                throw new MapControlExceptions("Can not move to that position, it is blocked");
-            }else{
+                //Door Checks
+                if (checkScene == locations[4][8]) {
+                    //Pin Code
+                    DoorNumber3View doorNumber3View = new DoorNumber3View();
+                    doorNumber3View.display();
+
+                    locations[4][8].setVisited(true);
+                    locations[5][8].setActor(actor);
+                    locations[5][8].setVisited(true);
+                    actor.setX(setRow + 1);
+                    actor.setY(currentColumn);
+                } else if (checkScene == locations[7][1]) {
+                    //Key Door
+                    FinalDoorView finalDoorView = new FinalDoorView();
+                    finalDoorView.display();
+
+                    locations[7][1].setVisited(true);
+                    locations[7][2].setActor(actor);
+                    locations[7][2].setVisited(true);
+                    actor.setX(setRow + 1);
+                    actor.setY(currentColumn);
+                } //Final Scene Check
+                else if (checkScene == locations[8][1]) {
+                    FinalSceneView finalSceneView = new FinalSceneView();
+                    finalSceneView.display();
+                } //Final Scene Check
+                else if (checkScene == locations[8][1]) {
+                    FinalSceneView finalSceneView = new FinalSceneView();
+                    finalSceneView.display();
+                }
+                //Item Checks
+                if (checkScene == locations[3][1]) {
+
+                } else if (checkScene == locations[2][4]) {
+
+                } else if (checkScene == locations[1][8]) {
+
+                } else if (checkScene == locations[7][8]) {
+
+                } else if (checkScene == locations[8][5]) {
+
+                }
+
+            } else {
                 checkScene.setVisited(true);
                 checkScene.setActor(actor);
                 actor.setX(setRow);
                 actor.setY(currentColumn);
             }
-        } 
-    }   
+        }
+    }
 }
