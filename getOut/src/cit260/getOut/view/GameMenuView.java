@@ -102,7 +102,10 @@ class GameMenuView extends View {
         Game game = GetOut.getCurrentGame();
 
         Location[][] location = GetOut.getCurrentGame().getMap().getLocations();
-        this.console.println("Get Out Map");
+        this.console.println("____ ____ ___ ____ _  _ ___    _  _ ____ ___  \n" +
+"| __ |___  |  |  | |  |  |     |\\/| |__| |__] \n" +
+"|__] |___  |  |__| |__|  |     |  | |  | |    \n" +
+"                                            \n");
         this.console.println("     0     1     2     3     4     5     6     7     8     9");
 
         for (int i = 0; i < location.length; i++) {

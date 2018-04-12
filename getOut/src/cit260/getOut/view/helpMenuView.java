@@ -20,7 +20,7 @@ class helpMenuView extends View{
     public String[] getInputs() {
         String[] inputs = new String[1];
            this.console.println("=======================================");
-        this.console.println("G - What is the goal of the game?\n" + "M - How to move\n" + "D - Doors open \n" + "T - Tools\n" + "Q - Quit ");
+        this.console.println("G - What is the goal of the game?\n" + "M - How to move\n" + "D - Doors open \n" + "T - Tools\n" + "P - To print the helpmenu report\n" + "Q - Quit ");
         this.console.println("=======================================");
         String mainInput = this.getInputs("\n Enter a key: ");
         inputs[0] = mainInput;
@@ -41,6 +41,8 @@ class helpMenuView extends View{
            case "D": howDoorsOpen();
            break;
            case "T": howTools();
+           break;
+           case "P": printList();
            break;
            case "Q": return true;
            
@@ -63,4 +65,11 @@ class helpMenuView extends View{
     }
     private void howTools() {
         this.console.println("\nOpen the game menu press T to view tools.\nYou can see all the tools that you have found so far.");
-}   }
+}
+
+    private void printList() {
+        FilePrintHelpView filePrintHelpView = new FilePrintHelpView();
+        filePrintHelpView.display();
+        this.console.println("=======================================");
+    }
+ }
