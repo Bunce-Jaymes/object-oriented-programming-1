@@ -5,7 +5,6 @@
  */
 package cit260.getOut.model;
 
-import java.awt.Point;
 import java.util.ArrayList;
 
 /**
@@ -22,6 +21,7 @@ public enum Actor{
     private int y;
     private Game game; 
     private ArrayList<Player> player1 = new ArrayList<Player>();
+    private String[] items = new String[8];
 
     public int getX() {
         return x;

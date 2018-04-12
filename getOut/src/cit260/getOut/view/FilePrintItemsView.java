@@ -55,8 +55,6 @@ public class FilePrintItemsView extends View {
         } catch (FileNotFoundException ex) {
             ErrorView.display(this.getClass().getName(), ex.getMessage());
         }
-        
-
         return true;
     }
 

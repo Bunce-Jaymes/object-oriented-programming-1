@@ -34,11 +34,8 @@ public class StartExistingGameView extends View {
         String filePath = inputs[0];
         try {
             GameControl.getGame(filePath);
-        } catch (GameControlExceptions gce) {
+        } catch (GameControlExceptions | IOException gce) {
             ErrorView.display(this.getClass().getName(), gce.getMessage());
-            return false;
-        } catch (IOException ex) {
-            ErrorView.display(this.getClass().getName(), ex.getMessage());
             return false;
         }
         GameMenuView gameMenuView = new GameMenuView();

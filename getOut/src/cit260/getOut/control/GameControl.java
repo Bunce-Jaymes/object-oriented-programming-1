@@ -11,17 +11,12 @@ import cit260.getOut.model.Actor;
 import cit260.getOut.model.Game;
 import cit260.getOut.model.Map;
 import cit260.getOut.model.Player;
-import cit260.getOut.view.ErrorView;
 import getout.GetOut;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import java.io.PrintWriter;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *

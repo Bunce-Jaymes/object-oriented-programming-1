@@ -9,9 +9,9 @@ package cit260.getOut.view;
  *
  * @author Samuel Prettyman
  */
-public class DemoDoorNum3 extends View {
+public class RoomThree extends View {
 
-    public DemoDoorNum3() {
+    public RoomThree() {
     }
     
      @Override

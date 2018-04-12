@@ -15,7 +15,7 @@ import java.util.Random;
  *
  * @author jayme
  */
-class DemoTestView extends View{
+public class DoorNumber3View extends View{
 
     void displayDemoTestView() throws PinExceptions {
         boolean endView = false;
@@ -45,7 +45,7 @@ class DemoTestView extends View{
         boolean valid = false;
         while (valid == false) {
             this.console.println("You notice written all over the walls the number, " + hint);
-            this.console.println("\nYou remember the note in your pocket and it reads,\n(X / 2 + 32)^24");
+            this.console.println("\nYou remember the note in your pocket and it reads,\n(X / 2 + 32)^2");
 
             this.console.println(
                     "        _ _ _ _\n\n"
@@ -54,7 +54,8 @@ class DemoTestView extends View{
                     + "|  7   |   8   |   9   |\n"
                     + "       |   0   |\n");
 
-            this.console.println("=======================================");
+            this.console.println("Or Q - To Quit\n"
+                    + "=======================================");
             this.console.println("Enter code: ");
 
             String input;

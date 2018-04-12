@@ -18,7 +18,7 @@ public class Location implements Serializable{
     private int column;
     private Actor actor;
     private Map map;
-    private ArrayList<RegularSceneType> sceneType = new ArrayList<RegularSceneType>();
+    private ArrayList<RegularSceneType> sceneType = new ArrayList<>();
     private boolean visited;
     
      private RegularSceneType scene;
@@ -55,9 +55,6 @@ public class Location implements Serializable{
         this.scene = scene;
     }
      
-     
-  
-  
 
     public Location() {
     }
