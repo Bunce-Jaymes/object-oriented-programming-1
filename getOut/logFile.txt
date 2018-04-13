@@ -1,5 +1,19 @@
 
 
-cit260.getOut.view.DoorViews.DoorNumber4View - You slam the door, but it doesn't budge. Maybe we need more or less force
+cit260.getOut.view.RoomItems.SandView - Invalid menu item.
 
-cit260.getOut.view.GameMenus.GameMenuView - Invalid menu item.
+cit260.getOut.view.RoomItems.SandView - Invalid menu item.
+
+cit260.getOut.view.GameMenus.GameMenuView - You must enter a non-blank value
+
+cit260.getOut.view.GameMenus.GameMenuView - =======================================
+
+cit260.getOut.view.RoomItems.PaperView - Invalid menu item.
+
+cit260.getOut.view.RoomItems.HammerView - Invalid menu item.
+
+cit260.getOut.view.RoomItems.HammerView - Invalid menu item.
+
+cit260.getOut.view.RoomItems.DriftPenView - Invalid menu item.
+
+cit260.getOut.view.DoorViews.DoorNumber4View - You slam the door, but it doesn't budge. Maybe we need more or less force

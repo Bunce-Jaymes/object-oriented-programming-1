@@ -30,7 +30,6 @@ class GameMenuView extends View {
                 + "M - Move player\n"
                 + "I - View inventory\n"
                 + "T - View list of tools\n"
-                + "E - Explore location\n"
                 + "S - Save game\n"
                 + "H - Help\n"
                 + "X - Exit game menu\n"
@@ -57,9 +56,6 @@ class GameMenuView extends View {
                 break;
             case "T":
                 viewToolList();
-                break;
-            case "E":
-                exploreLocation();
                 break;
             case "S":
                 saveGame();
@@ -119,11 +115,6 @@ class GameMenuView extends View {
     private void viewToolList() {
         ToolListView toolListView = new ToolListView();
         toolListView.displayoolListView();
-        this.console.println("=======================================");
-    }
-
-    private void exploreLocation() {
-        this.console.println("***exploreLocation Called***");
         this.console.println("=======================================");
     }
 

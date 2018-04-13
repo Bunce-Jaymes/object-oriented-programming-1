@@ -15,12 +15,19 @@ public class FinalDoorView extends View {
 
     @Override
     public String[] getInputs() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+       String[] inputs = new String[1];
+        String mainInput = "w";
+        inputs[0] = mainInput;
+
+        return inputs;
     }
 
     @Override
     public boolean doAction(String[] inputs) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.console.println("There are three tumblers placed on the door\n"
+                + "you insert the green, red, and blue key\n"
+                + "the locks turn and the heavy door sings open");
+        return true;  
     }
     
 }
