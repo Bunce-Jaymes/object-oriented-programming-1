@@ -5,6 +5,7 @@
  */
 package getout;
 
+import cit260.getOut.view.GameMenus.StartProgramView;
 import cit260.getOut.model.*;
 import cit260.getOut.view.*;
 import java.io.BufferedReader;
@@ -22,6 +23,15 @@ public class GetOut {
 
     private static Game currentGame = null;
     private static Player player = null;
+    private static Actor actor = null;
+
+    public static Actor getActor() {
+        return actor;
+    }
+
+    public static void setActor(Actor actor) {
+        GetOut.actor = actor;
+    }
     private static PrintWriter logFile = null;
     private static BufferedReader inFile = null;
     private static PrintWriter outFile = null;

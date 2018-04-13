@@ -18,12 +18,17 @@ import cit260.getOut.model.QuestionScene;
 import cit260.getOut.model.RegularSceneType;
 import cit260.getOut.model.SceneType;
 import cit260.getOut.model.StartScene;
-import cit260.getOut.view.DoorNumber1View;
-import cit260.getOut.view.DoorNumber2View;
-import cit260.getOut.view.DoorNumber3View;
-import cit260.getOut.view.DoorNumber4View;
-import cit260.getOut.view.FinalDoorView;
+import cit260.getOut.view.RoomItems.BottleView;
+import cit260.getOut.view.DoorViews.DoorNumber1View;
+import cit260.getOut.view.DoorViews.DoorNumber2View;
+import cit260.getOut.view.DoorViews.DoorNumber3View;
+import cit260.getOut.view.DoorViews.DoorNumber4View;
+import cit260.getOut.view.DoorViews.FinalDoorView;
 import cit260.getOut.view.FinalSceneView;
+import cit260.getOut.view.RoomItems.DriftPenView;
+import cit260.getOut.view.RoomItems.HammerView;
+import cit260.getOut.view.RoomItems.PaperView;
+import cit260.getOut.view.RoomItems.SandView;
 import getout.GetOut;
 import java.util.ArrayList;
 
@@ -106,7 +111,7 @@ public class MapControl {
         scenes[SceneType.finish.ordinal()] = finish;
 
         WallScene wall = new WallScene();
-        wall.setDescription("Ther is a wall before you.");
+        wall.setDescription("There is a wall before you.");
         wall.setBlocked("Yes");
         wall.setSymbol("###");
 
@@ -370,8 +375,6 @@ public class MapControl {
         if (columnChange == true) {
             Location checkScene = locations[currentRow][setColumn];
             String sceneBlocked = checkScene.getScene().getBlocked();
-            System.out.println(checkScene);
-
             if ("Yes".equals(sceneBlocked)) {
                 checkScene.setVisited(true);
 
@@ -379,43 +382,43 @@ public class MapControl {
                 if (checkScene == locations[1][2]) {
                     DoorNumber1View doorNumber1View = new DoorNumber1View();
                     doorNumber1View.display();
-
-                    locations[1][2].setVisited(true);
-                    locations[1][3].setActor(actor);
-                    locations[1][3].setVisited(true);
-                    actor.setX(currentRow);
-                    actor.setY(setColumn + 1);
                 } else if (checkScene == locations[3][5]) {
                     //Sand Weight
-                    DoorNumber2View doorNumber2View = new DoorNumber2View();
-                    doorNumber2View.display();
-
-                    locations[3][5].setVisited(true);
-                    locations[3][6].setActor(actor);
-                    locations[3][6].setVisited(true);
-                    actor.setX(currentRow);
-                    actor.setY(setColumn + 1);
+                    String[] inventory = actor.getItems();
+                    if (inventory[0] == "Bottle" && inventory[1] == "Sand") {
+                        DoorNumber2View doorNumber2View = new DoorNumber2View();
+                        doorNumber2View.display();
+                    } else {
+                        System.out.println("You must first obtain both items to use this door");
+                    }
                 } else if (checkScene == locations[6][4]) {
                     //Hammer Door
-                    DoorNumber4View doorNumber4View = new DoorNumber4View();
-                    doorNumber4View.display();
-
-                    locations[6][4].setVisited(true);
-                    locations[6][3].setActor(actor);
-                    locations[6][3].setVisited(true);
-                    actor.setX(currentRow);
-                    actor.setY(setColumn + 1);
+                    String[] inventory = actor.getItems();
+                    if (inventory[3] == "Hammer" && inventory[4] == "Drift-Pen") {
+                        DoorNumber4View doorNumber4View = new DoorNumber4View();
+                        doorNumber4View.display();
+                    } else {
+                        System.out.println("You must first obtain both items to use this door");
+                    }
                 } //Item Checks
                 else if (checkScene == locations[3][1]) {
-
+                    SandView sandView = new SandView();
+                    sandView.display();
                 } else if (checkScene == locations[2][4]) {
-
+                    BottleView bottleView = new BottleView();
+                    bottleView.display();
                 } else if (checkScene == locations[1][8]) {
-
+                    PaperView paperView = new PaperView();
+                    paperView.display();
                 } else if (checkScene == locations[7][8]) {
-
+                    HammerView hammerView = new HammerView();
+                    hammerView.display();
                 } else if (checkScene == locations[8][5]) {
-
+                    DriftPenView driftPenView = new DriftPenView();
+                    driftPenView.display();
+                } //Walls
+                else {
+                    System.out.println("You cannot move that direction there is a: " + checkScene.getScene().getDescription());
                 }
             } else {
                 checkScene.setVisited(true);
@@ -427,52 +430,52 @@ public class MapControl {
         if (rowChange == true) {
             Location checkScene = locations[setRow][currentColumn];
             String sceneType = checkScene.getScene().getBlocked();
-            double door = checkScene.getScene().getDoor();
-            double room = checkScene.getScene().getRoom();
 
             if ("Yes".equals(sceneType)) {
                 checkScene.setVisited(true);
                 //Door Checks
                 if (checkScene == locations[4][8]) {
                     //Pin Code
-                    DoorNumber3View doorNumber3View = new DoorNumber3View();
-                    doorNumber3View.display();
-
-                    locations[4][8].setVisited(true);
-                    locations[5][8].setActor(actor);
-                    locations[5][8].setVisited(true);
-                    actor.setX(setRow + 1);
-                    actor.setY(currentColumn);
+                    String[] inventory = actor.getItems();
+                    if (inventory[2] == "Paper") {
+                        DoorNumber3View doorNumber3View = new DoorNumber3View();
+                        doorNumber3View.display();
+                    } else {
+                        System.out.println("You must first obtain an item to use this door");
+                    }
                 } else if (checkScene == locations[7][1]) {
                     //Key Door
                     FinalDoorView finalDoorView = new FinalDoorView();
                     finalDoorView.display();
 
                     locations[7][1].setVisited(true);
-                    locations[7][2].setActor(actor);
-                    locations[7][2].setVisited(true);
+                    locations[8][1].setActor(actor);
+                    locations[8][1].setVisited(true);
                     actor.setX(setRow + 1);
                     actor.setY(currentColumn);
-                } //Final Scene Check
-                else if (checkScene == locations[8][1]) {
+                    
                     FinalSceneView finalSceneView = new FinalSceneView();
                     finalSceneView.display();
                 } //Final Scene Check
-                else if (checkScene == locations[8][1]) {
-                    FinalSceneView finalSceneView = new FinalSceneView();
-                    finalSceneView.display();
-                }
                 //Item Checks
                 if (checkScene == locations[3][1]) {
-
+                    SandView sandView = new SandView();
+                    sandView.display();
                 } else if (checkScene == locations[2][4]) {
-
+                    BottleView bottleView = new BottleView();
+                    bottleView.display();
                 } else if (checkScene == locations[1][8]) {
-
+                    PaperView paperView = new PaperView();
+                    paperView.display();
                 } else if (checkScene == locations[7][8]) {
-
+                    HammerView hammerView = new HammerView();
+                    hammerView.display();
                 } else if (checkScene == locations[8][5]) {
-
+                    DriftPenView driftPenView = new DriftPenView();
+                    driftPenView.display();
+                } //Walls
+                else {
+                    System.out.println("You cannot move that direction there is a: " + checkScene.getScene().getDescription());
                 }
 
             } else {

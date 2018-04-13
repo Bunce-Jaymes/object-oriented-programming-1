@@ -21,7 +21,15 @@ public enum Actor{
     private int y;
     private Game game; 
     private ArrayList<Player> player1 = new ArrayList<Player>();
-    private String[] items = new String[8];
+    private String[] items = {"???","???","???","???","???","???","???","???"};
+
+    public String[] getItems() {
+        return items;
+    }
+
+    public void setItems(String[] items) {
+        this.items = items;
+    }
 
     public int getX() {
         return x;

@@ -10,7 +10,7 @@ import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 
-/**
+/*
  *
  * @author jayme
  */
@@ -55,6 +55,8 @@ public class FilePrintItemsView extends View {
         } catch (FileNotFoundException ex) {
             ErrorView.display(this.getClass().getName(), ex.getMessage());
         }
+        
+
         return true;
     }
 
