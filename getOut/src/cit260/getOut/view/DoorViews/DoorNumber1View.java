@@ -19,12 +19,9 @@ import getout.GetOut;
 public class DoorNumber1View extends View {
 
     @Override
-    public String[] getInputs() {
+    public String[] getInputs() { 
         String[] inputs = new String[1];
-        String mainInput = this.getInputs("You bump into the door, it creaks open a bit\n"
-                + "Would you like to open it? (Type yes)\n"
-                + "=======================================\n"
-                + "Enter: ");
+        String mainInput = "w";
         inputs[0] = mainInput;
 
         return inputs;
@@ -34,7 +31,7 @@ public class DoorNumber1View extends View {
     public boolean doAction(String[] inputs) {
         String menuItem = inputs[0];
         menuItem = inputs[0].toUpperCase().trim();
-        this.console.println("The door swings open and you can now pass through");
+        this.console.println("You bump into the door, it creaks open a bit\n" + "The door swings open and you can now pass through");
         Game game = GetOut.getCurrentGame();
         Map map = game.getMap();
         Location[][] locations = map.getLocations();

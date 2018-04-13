@@ -1,0 +1,5 @@
+
+
+cit260.getOut.view.DoorViews.DoorNumber4View - You slam the door, but it doesn't budge. Maybe we need more or less force
+
+cit260.getOut.view.GameMenus.GameMenuView - Invalid menu item.

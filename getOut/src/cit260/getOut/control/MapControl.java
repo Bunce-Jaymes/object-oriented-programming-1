@@ -453,10 +453,10 @@ public class MapControl {
                     locations[8][1].setVisited(true);
                     actor.setX(setRow + 1);
                     actor.setY(currentColumn);
-                    
+
                     FinalSceneView finalSceneView = new FinalSceneView();
                     finalSceneView.display();
-                } //Final Scene Check
+                }
                 //Item Checks
                 if (checkScene == locations[3][1]) {
                     SandView sandView = new SandView();
